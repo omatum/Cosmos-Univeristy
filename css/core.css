@@ -93,6 +93,16 @@ body p {
   line-height: 1.6rem;
   padding-bottom: 1.6rem;
 }
+body b {
+  font-weight: 900;
+}
+body a {
+  color: #f94872;
+  font-weight: 600;
+}
+body a:hover {
+  color: #ff9d33;
+}
 body section {
   padding-bottom: 3.2rem;
 }
