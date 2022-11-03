@@ -4,6 +4,8 @@ public
 
 
 *.log
+
 *.env
+.env.*
 
 .env
