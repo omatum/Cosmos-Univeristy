@@ -1,11 +1,8 @@
-node_modules/
-.cache/
-public
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
 
-
-*.log
-
-*.env
 .env.*
-
 .env
