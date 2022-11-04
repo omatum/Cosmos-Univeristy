@@ -1,1 +1,0 @@
-Work in progress : <a href="https://cosmos.university">https://cosmos.university</a>
