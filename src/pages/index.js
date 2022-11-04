@@ -1,6 +1,5 @@
 import React, { useRef } from "react"
 import Helmet from 'react-helmet'
-import { withPrefix, Link } from "gatsby"
 
 import emailjs from "@emailjs/browser"
 
@@ -73,19 +72,19 @@ export default function Home() {
               <h3>Are you?</h3>
               <div class="select-option">
                 <input type="radio" id="select_student" name="dt_reason" value="Student" />
-                <label for="select_student">Interested in Enrolling</label>
+                <label htmlFor="select_student">Interested in Enrolling</label>
               </div>
               <div class="select-option">
                 <input type="radio" id="select_curator" name="dt_reason" value="Curator" />
-                <label for="select_curator">Interested in Being a Curator</label>
+                <label htmlFor="select_curator">Interested in Being a Curator</label>
               </div>
               <div class="select-option">
                 <input type="radio" id="select_professor" name="dt_reason" value="Professor" />
-                <label for="select_professor">Interested in Being a Professor</label>
+                <label htmlFor="select_professor">Interested in Being a Professor</label>
               </div>
               <div class="select-option">
                 <input type="radio" id="select_launch" name="dt_reason" value="Launch" />
-                <label for="select_launch">Just wanting to know when we launch</label>
+                <label htmlFor="select_launch">Just wanting to know when we launch</label>
               </div>
             </div>
             <input type="submit" value="Sign Up For Updates" />

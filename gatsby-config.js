@@ -52,19 +52,23 @@ module.exports = {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `books`,
             queryName: `_books`,
-            separateNodeType:true
+            separateNodeType:true,
+            tableLinks: [`Author`,`Publisher`,`plants_magical`,`Bibliography`,`Referenced_In`,`crystals_magical`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `celestials`,
             queryName: `_celestials`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks: [`Orbits`,`plants_magical`,`crystals_magical`,`plants_magical_2`,`crystals_magical_2`,`cycles_rhythm`]
+
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `chakras`,
             queryName: `_chakras`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`elements`,`crystals_magical`,`plants_magical`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
@@ -76,37 +80,43 @@ module.exports = {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `crystals`,
             queryName: `_crystals`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`Varities`,`Variety_Of`,`crystals_magical`,`pairs_with`,`plants_magical`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `crystals-magical`,
             queryName: `_crystals_magical`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`id_crystal`,`source`,`Planet`,`Element`,`Deities`,`Chakra`,`Zodiac`,`Effects`,`linked_numbers`,`linked_tarot`,`linked_crystals`,`linked_plants`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `cycles`,
             queryName: `_cycles`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`cycles_rhythm`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `cycles-rhythm`,
             queryName: `_cycles_rhythm`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`cycles`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `deities`,
             queryName: `_deities`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`plants_magical`,`crystals_magical`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `elements`,
             queryName: `_elements`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`plants_magical`,`crystals_magical`,`chakras`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
@@ -118,7 +128,8 @@ module.exports = {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `magic-effects`,
             queryName: `_magic_effects`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`plants_magical`,`crystals_magical`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
@@ -136,19 +147,23 @@ module.exports = {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `people`,
             queryName: `_people`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`books`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `plants`,
             queryName: `_plants`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`plants_magical`,`crystals_magical`,`images`]
+
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `plants-magical`,
             queryName: `_plants_magical`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks:[`id_plant`,`Source`,`Planet`,`Zodiac`,`Element`,`Deities`,`Chakra`,`Effects`,`Linked_Crystals`,]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
@@ -164,9 +179,17 @@ module.exports = {
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
+            tableName: `sourcebank_images-plants`,
+            queryName: `_sourcebank_images_plants`,
+            separateNodeType: true,
+            tableLinks: [`Linked Plants`]
+          },
+          {
+            baseId: process.env.AT_BASE_CUDB_ID,
             tableName: `tarot`,
             queryName: `_tarot`,
-            separateNodeType: true
+            separateNodeType: true,
+            tableLinks: [`crystals_magical`]
           },
           {
             baseId: process.env.AT_BASE_CUDB_ID,
