@@ -1,2 +1,16 @@
-This is a theme I guess
-{{content}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+  	This is a theme I guess
+	{{content}}
+
+	{% for book in site.data.books %}
+	{% assign author_id = book.fields.Author | first %}
+	{% assign author = site.data.people | where: "id",author_id | first %}
+	{{book.fields.title}} by {{author.fields.name_full}}<br>
+	{% endfor %}
+  </body>
+</html>
+

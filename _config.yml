@@ -12,6 +12,18 @@ github_username:
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-datapage-generator
+
+
+#This is our page generator for all data content - it scours the data files to produce these pages
+
+page_gen_dirs: true
+page_gen:
+  - data: plants
+    template: plant
+    dir: databank/plants
+    index_files: true
+    name_expr: record['fields']['slug']
 
 # Exclude from processing.
 # The following items will not be processed, by default.
