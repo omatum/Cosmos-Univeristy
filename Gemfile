@@ -31,3 +31,9 @@ gem "json", "~> 2.6"
 gem "airrecord", "~> 1.0"
 
 gem "jekyll-datapage-generator", "~> 1.4"
+
+gem "liquid-c", "~> 4.0"
+
+gem "erb", "~> 3.0"
+
+gem "recursive-open-struct", "~> 1.1"

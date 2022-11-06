@@ -1,1 +1,21 @@
-this is a plant named {{page}}
+{% assign plant = page.fields %}
+<% huck = {{plant}} %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<a href="..">&larr; Return to Directory</a>
+	<h1>{{plant.name_common}}</h1>
+	<i>{{plant.name_scientific}}</i>
+	<br>
+	<br>
+	<img src="{{plant.image_cover[0].url}}" alt="Botanical Illustration of {{plant.name_common}}" style="max-width:100%;">
+	<hr>
+	<p>Last Updated: {{plant.last_modified | date: "%Y-%m-%d %H:%M"}}</p>
+	<p>Also known as: {{plant.names_aka}}</p>
+	<h2>{{plant.name_common}} Spiritual Properties</h2>
+	<%= huck %>
+</body>
+</html>
