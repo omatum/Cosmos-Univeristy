@@ -8,7 +8,7 @@
   	{% for item in directory_alpha %}
   	<li>
   		<a href="{{item.fields.slug}}">
-  			{{item.fields.name_common}}
+  			{{item.fields.name_common}} | {{item.fields.num_magicals}}
   		</a>
   	</li>
   	{% endfor %}

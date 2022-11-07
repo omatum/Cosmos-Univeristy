@@ -63,13 +63,13 @@
 <body>
 	<a href="..">&larr; Return to Plants Databank Directory</a>
 	<h1>{{plant.name_common}}</h1>
-	<i>{{plant.name_scientific}}</i>
-	<br>
-	<br>
+	<p>Also known as: {{plant.names_aka}}</p>
+	<hr>
 	<img src="{{plant.image_cover[0].url}}" alt="Botanical Illustration of {{plant.name_common}}" style="max-width:100%;">
+	<br>
+	<i>{{plant.name_scientific}}</i>
 	<hr>
 	<p>Last Updated: {{plant["Last Modified"] | date: "%B %-d, %Y at %I:%M%P"}} by {{plant["Last Modified By"].name}}</p>
-	<p>Also known as: {{plant.names_aka}}</p>
 	<h2>{{plant.name_common}} Spiritual Properties from {{plant.num_magicals}} sources</h2>
 	<hr>
 	<% if plant_magical_genders.count > 0 %>
@@ -110,7 +110,7 @@
 	<% if plant_magical_effects.count > 0 %>
 		<h3>Magic Effects</h3>
 		<% plant_magical_effects.each do |p| %>
-			<%= p[0]["fields"]["name"] %><br>
+			<%= "<a href='/databank/magic_effects/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
 		<% end %>
 	<% end %>
 
@@ -125,6 +125,8 @@
 
 	<br>
 	<hr>
+	Data for Cosmos University was generated from <%= $source_count %> sources and maps <%= $total_datapoints %> datapoints.
+	<br>
 	<a href="/">Return to Homepage</a>
 </body>
 </html>
