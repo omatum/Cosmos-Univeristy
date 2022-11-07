@@ -1,21 +1,70 @@
 {% assign plant = page.fields %}
-<% huck = {{plant}} %>
+<% plant = {{plant}}.to_h %>
+<% db_plant_magicals = JSON.parse(File.read(File.expand_path(__dir__,"_data/plant_magicals.json"))) %>
+<% db_plant_planets = JSON.parse(File.read(File.expand_path(__dir__,"_data/celestials.json"))) %>
+
+<% plant_magicals = [] %>
+<% if plant["num_magicals"] > 0 %>
+	<% plant["plants_magical"].each do |p| %>
+		<% plant_magicals << db_plant_magicals.select { |k| k["id"] == p } %>
+	<% end %>
+<% end %>
+
+<% plant_magical_sources = [] %>
+<% plant_magical_genders = [] %>
+<% plant_magical_planets = [] %>
+<% plant_magical_zodiacs = [] %>
+<% plant_magical_elements = [] %>
+<% plant_magical_chakras = [] %>
+<% plant_magical_effects = [] %>
+<% plant_magical_crystals = [] %>
+
+<% plant_magicals.each do |p| %>
+	<% this_item = p[0]["fields"] %>
+	<% if this_item.has_key?("Gender") %>
+		<% plant_magical_genders << this_item["Gender"] %>
+	<% end %>
+	<% if this_item.has_key?("Planet") %>
+		<% this_item["Planet"].each do |o| %>
+			<% plant_magical_planets << db_plant_planets.select {|k| k["id"] == o} %>
+		<% end %>
+	<% end %>
+<% end %>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 </head>
 <body>
-	<a href="..">&larr; Return to Directory</a>
+	<a href="..">&larr; Return to Plants Directory</a>
 	<h1>{{plant.name_common}}</h1>
 	<i>{{plant.name_scientific}}</i>
 	<br>
 	<br>
 	<img src="{{plant.image_cover[0].url}}" alt="Botanical Illustration of {{plant.name_common}}" style="max-width:100%;">
 	<hr>
-	<p>Last Updated: {{plant.last_modified | date: "%Y-%m-%d %H:%M"}}</p>
+	<p>Last Updated: {{plant["Last Modified"] | date: "%B %-d, %Y at %I:%M%P"}} by {{plant["Last Modified By"].name}}</p>
 	<p>Also known as: {{plant.names_aka}}</p>
-	<h2>{{plant.name_common}} Spiritual Properties</h2>
-	<%= huck %>
+	<h2>{{plant.name_common}} Spiritual Properties from {{plant.num_magicals}} sources</h2>
+	<hr>
+	<% if plant_magical_genders %>
+		<h3>Genders</h3>
+		<% plant_magical_genders.each do |p| %>
+			<%= p %><br>
+		<% end %>
+	<% end %>
+
+	<% if plant_magical_planets %>
+		<h3>Planets</h3>
+		<% plant_magical_planets.each do |p| %>
+			<%= p[0]["fields"]["name"] %><br>
+		<% end %>
+	<% end %>
+	<br>
+	<hr>
+	<h6>DATA FOR REVIEW</h6>
+	<%= plant_magicals %>
+	
 </body>
 </html>

@@ -1,5 +1,5 @@
 require 'erb'
-require 'recursive-open-struct'
+#require 'recursive-open-struct'
 
 module EmbeddedRuby
   def render_liquid(content, payload, info, path = nil)
