@@ -88,14 +88,14 @@
 	<% if plant_magical_planets.count > 0 %>
 		<h3>Planets</h3>
 		<% plant_magical_planets.each do |p| %>
-			<%= p[0]["fields"]["name"] %><br>
+			<%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
 		<% end %>
 	<% end %>
 
 	<% if plant_magical_zodiacs.count > 0 %>
 		<h3>Zodiacs</h3>
 		<% plant_magical_zodiacs.each do |p| %>
-			<%= p[0]["fields"]["name"] %><br>
+			<%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
 		<% end %>
 	<% end %>
 
@@ -137,9 +137,7 @@
 
 
 	<br>
-	<hr>
-	Data for Cosmos University was generated from <%= $source_count %> sources and maps <%= $total_datapoints %> datapoints.
-	<br>
-	<a href="/">Return to Homepage</a>
+	{% include basic_footer.html %}
+	
 </body>
 </html>

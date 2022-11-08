@@ -19,11 +19,17 @@ plugins:
 
 page_gen_dirs: true
 page_gen:
+  - data: celestials
+    template: celestial
+    dir: databank/celestials
+    index_files: true
+    name_expr: record['fields']['slug']
   - data: plants
     template: plant
     dir: databank/plants
     index_files: true
     name_expr: record['fields']['slug']
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
