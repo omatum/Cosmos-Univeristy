@@ -14,6 +14,7 @@
 <% plant_magical_planets = [] %>
 <% plant_magical_zodiacs = [] %>
 <% plant_magical_elements = [] %>
+<% plant_magical_deities = [] %>
 <% plant_magical_chakras = [] %>
 <% plant_magical_effects = [] %>
 <% plant_magical_crystals = [] %>
@@ -36,6 +37,11 @@
 	<% if this_item.has_key?("Element") %>
 		<% this_item["Element"].each do |o| %>
 			<% plant_magical_elements << $db_elements.select {|k| k["id"] == o} %>
+		<% end %>
+	<% end %>
+	<% if this_item.has_key?("Deities") %>
+		<% this_item["Deities"].each do |o| %>
+			<% plant_magical_deities << $db_deities.select {|k| k["id"] == o} %>
 		<% end %>
 	<% end %>
 	<% if this_item.has_key?("Chakra") %>
@@ -97,6 +103,13 @@
 		<h3>Elements</h3>
 		<% plant_magical_elements.each do |p| %>
 			<%= p[0]["fields"]["name"] %><br>
+		<% end %>
+	<% end %>
+
+	<% if plant_magical_deities.count > 0 %>
+		<h3>Deities</h3>
+		<% plant_magical_deities.each do |p| %>
+			<%= p[0]["fields"]["name_common"] %><br>
 		<% end %>
 	<% end %>
 
