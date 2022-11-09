@@ -24,6 +24,11 @@ page_gen:
     dir: databank/celestials
     index_files: true
     name_expr: record['fields']['slug']
+  - data: deities
+    template: deity
+    dir: databank/deities
+    index_files: true
+    name_expr: record['fields']['slug']
   - data: elements
     template: element
     dir: databank/elements

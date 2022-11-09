@@ -1,0 +1,59 @@
+{% assign deity = page.fields %}
+<% deity = {{deity}}.to_h %>
+
+<% deity_plants = [] %>
+<% deity_crystals = [] %>
+
+<% if deity.has_key?("plants_magical") %>
+	<% deity["plants_magical"].each do |p| %>
+		<% tmpa = $db_plant_magicals.find { |k| k["id"] == p} %>
+		<% deity_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
+	<% end %>
+<% end %>
+
+<% if deity.has_key?("crystals_magical") %>
+	<% deity["crystals_magical"].each do |p| %>
+		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == p} %>
+		<% deity_crystals <<  $db_crystals.find { |k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+	<% end %>
+<% end %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<a href="..">&larr; Return to Deities Databank Directory</a>
+	<h1>{{deity.name_common}}</h1>
+	<hr>
+	<% if deity.has_key?("Copy") %>
+		<% if deity["Copy"].length > 10 %>
+			<%= deity["Copy"] %>
+		<% else %>
+			{% include frag_helpneeded.html %}
+		<% end %>
+	<% else %>
+		{% include frag_helpneeded.html %} 
+	<% end %>
+	<hr>
+
+	<% if deity_plants.count > 0 %>
+		<h3>Associated Plants</h3>
+		<% deity_plants.each do |p| %>
+			<%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %><br>
+		<% end %>
+	<% end %>
+
+	<% if deity_crystals.count > 0 %>
+		<h3>Associated Crystals</h3>
+		<% deity_crystals.each do |p| %>
+			<%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %><br>
+		<% end %>
+	<% end %>
+
+	<br>
+	{% include basic_footer.html %}
+</body>
+</html>
