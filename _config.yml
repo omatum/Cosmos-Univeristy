@@ -24,6 +24,11 @@ page_gen:
     dir: databank/celestials
     index_files: true
     name_expr: record['fields']['slug']
+  - data: elements
+    template: element
+    dir: databank/elements
+    index_files: true
+    name_expr: record['fields']['slug']
   - data: plants
     template: plant
     dir: databank/plants
