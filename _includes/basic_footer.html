@@ -1,8 +1,11 @@
 <footer>
 	<hr>
-	<hr>
+	{% if page.is_a != "dir"%}
+	<code>Page data last updated: {{page.fields["Last Modified"] | date: "%B %-d, %Y at %I:%M%P"}} by {{page.fields["Last Modified By"].name}}</code>
+	{% endif %}
 	<br>
-	<code>Data for Cosmos University was generated from <%= $source_count %> sources and maps <%= $total_datapoints %> datapoints.</code>
+	<br>
+	<code>Data for Cosmos University was generated from <%= $source_count %> sources and maps <%= $total_datapoints %> data records.</code>
 	<br>
 	<br>
 	<a href="/">Return to Homepage</a>

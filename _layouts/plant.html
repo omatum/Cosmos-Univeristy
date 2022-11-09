@@ -75,7 +75,16 @@
 	<br>
 	<i>{{plant.name_scientific}}</i>
 	<hr>
-	<p>Last Updated: {{plant["Last Modified"] | date: "%B %-d, %Y at %I:%M%P"}} by {{plant["Last Modified By"].name}}</p>
+	<% if plant.has_key?("Copy") %>
+		<% if plant["Copy"].length > 10 %>
+			<%= plant["Copy"] %>
+		<% else %>
+			{% include frag_helpneeded.html %}
+		<% end %>
+	<% else %>
+		{% include frag_helpneeded.html %} 
+	<% end %>
+	<hr>
 	<h2>{{plant.name_common}} Spiritual Properties from {{plant.num_magicals}} sources</h2>
 	<hr>
 	<% if plant_magical_genders.count > 0 %>

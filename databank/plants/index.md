@@ -1,4 +1,5 @@
 ---
-layout: plants_directory
+layout: directory_plants
 directory_for: plants
+is_a: dir
 ---
