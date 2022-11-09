@@ -1,5 +1,5 @@
 ---
 layout: directory_deities
-directory_for: deity
+directory_for: deities
 is_a: dir
 ---
