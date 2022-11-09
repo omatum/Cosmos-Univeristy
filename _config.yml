@@ -29,6 +29,11 @@ page_gen:
     dir: databank/chakras
     index_files: true
     name_expr: record['fields']['slug']
+  - data: crystals
+    template: crystal
+    dir: databank/crystals
+    index_files: true
+    name_expr: record['fields']['slug']
   - data: deities
     template: deity
     dir: databank/deities
