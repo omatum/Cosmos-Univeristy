@@ -127,7 +127,7 @@
 	<% if plant_magical_chakras.count > 0 %>
 		<h3>Chakras</h3>
 		<% plant_magical_chakras.each do |p| %>
-			<%= p[0]["fields"]["name"] %><br>
+			<%= "<a href='/databank/chakras/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>"  %><br>
 		<% end %>
 	<% end %>
 
@@ -144,8 +144,6 @@
 			<%= "<a href='/databank/crystals/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %><br>
 		<% end %>
 	<% end %>
-
-
 
 	<br>
 	{% include basic_footer.html %}

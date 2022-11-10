@@ -37,3 +37,5 @@ gem "liquid-c", "~> 4.0"
 gem "erb", "~> 3.0"
 
 gem "recursive-open-struct", "~> 1.1"
+
+gem "jekyll-sitemap", "~> 1.4"

@@ -11,8 +11,8 @@ github_username:
 
 # Build settings
 plugins:
-  - jekyll-feed
   - jekyll-datapage-generator
+  - jekyll-sitemap
 
 
 #This is our page generator for all data content - it scours the data files to produce these pages
@@ -42,6 +42,11 @@ page_gen:
   - data: elements
     template: element
     dir: databank/elements
+    index_files: true
+    name_expr: record['fields']['slug']
+  - data: magic_effects
+    template: magic_effect
+    dir: databank/magic_effects
     index_files: true
     name_expr: record['fields']['slug']
   - data: plants
