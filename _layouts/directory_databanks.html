@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include basic_head.html %}
+    <title>Cosmos University Databanks</title>  
+  </head>
+  <body>
+    <h1>Cosmos University: Databanks</h1>
+    <hr>
+    <ul>
+    	<li>
+    		<a href="celestials">
+    			Celestials (<%= $db_celestials.count %> Records) 
+    		</a>
+      </li>
+      <li>
+        <a href="chakras">
+          Chakras (<%= $db_chakras.count %> Records) 
+        </a>
+      </li>
+      <li>
+        <a href="crystals">
+          Crystals (<%= $db_crystals.count %> Records) 
+        </a>
+      </li>
+      <li>
+        <a href="deities">
+          Deities (<%= $db_deities.count %> Records) 
+        </a>
+      </li>
+      <li>
+        <a href="elements">
+          Elements (<%= $db_elements.count %> Records) 
+        </a>
+      </li>
+      <li>
+        <a href="magic-effects">
+          Magical Effects (<%= $db_magic_effects.count %> Records) 
+        </a>
+      </li>
+      <li>
+        <a href="plants">
+          Plants (<%= $db_plants.count %> Records) 
+        </a>
+    	</li>
+    </ul>
+    {% include basic_footer.html %}
+  </body>
+</html>

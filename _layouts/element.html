@@ -1,0 +1,81 @@
+{% assign element = page.fields %}
+<% element = {{element}}.to_h %>
+
+<% element_plants = [] %>
+<% element_crystals = [] %>
+<% element_chakras = [] %>
+
+<% if element.has_key?("plants_magical") %>
+	<% element["plants_magical"].each do |p| %>
+		<% tmpa = $db_plant_magicals.find { |k| k["id"] == p} %>
+		<% element_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
+	<% end %>
+<% end %>
+
+<% if element.has_key?("crystals_magical") %>
+	<% element["crystals_magical"].each do |p| %>
+		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == p} %>
+		<% element_crystals <<  $db_crystals.find { |k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+	<% end %>
+<% end %>
+
+<% if element.has_key?("chakras") %>
+	<% element["chakras"].each do |p| %>
+		<% element_chakras << $db_chakras.find { |k| k["id"] == p} %>
+	<% end %>
+<% end %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% include basic_head.html %}
+	<title>{{element.name}}: Spiritual and Scientific Data</title>	
+</head>
+<body>
+	<a href="..">&larr; Return to Elements Databank Directory</a>
+	<h1>{{element.name}}</h1>
+	<hr>
+	<% if element.has_key?("Copy") %>
+		<% if element["Copy"].length > 10 %>
+			<%= element["Copy"] %>
+		<% else %>
+			{% include frag_helpneeded.html %}
+		<% end %>
+	<% else %>
+		{% include frag_helpneeded.html %} 
+	<% end %>
+	<hr>
+
+
+	<% if element_chakras.count > 0 %>
+		<h3>Associated Chakras</h3>
+		<ul>
+		<% element_chakras.each do |p| %>
+			<li><%= "<a href='/databank/chakras/#{p['fields']['slug']}'>#{p['fields']['name']}</a>"  %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<% if element_plants.count > 0 %>
+		<h3>Associated Plants</h3>
+		<ul>
+		<% element_plants.each do |p| %>
+			<li><%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<% if element_crystals.count > 0 %>
+		<h3>Associated Crystals</h3>
+		<ul>
+		<% element_crystals.each do |p| %>
+			<li><%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<br>
+	{% include basic_footer.html %}
+</body>
+</html>

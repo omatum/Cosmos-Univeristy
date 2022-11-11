@@ -1,0 +1,79 @@
+{% assign celestial = page.fields %}
+<% celestial = {{celestial}}.to_h %>
+
+<% celestial_crystals = [] %>
+<% celestial_plants = [] %>
+
+<% if celestial["Is Zodiac?"] == "is_zodiac" %>
+	<% celestial["crystals_magical_2"].each do |p| %>
+		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == p} %>
+		<% celestial_crystals <<  $db_crystals.find { |k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+	<% end %>
+	<% celestial["plants_magical_2"].each do |p| %>
+		<% tmpa = $db_plant_magicals.find { |k| k["id"] == p} %>
+		<% celestial_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
+	<% end %>
+<% else %>
+	<% celestial["plants_magical"].each do |p| %>
+		<% tmpa = $db_plant_magicals.find { |k| k["id"] == p} %>
+		<% celestial_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
+	<% end %>
+	<% celestial["crystals_magical"].each do |p| %>
+		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == p} %>
+		<% celestial_crystals <<  $db_crystals.find { |k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+	<% end %>
+<% end %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% include basic_head.html %}
+	<title>{{celestial.name}}: Spiritual and Scientific Data</title>	
+</head>
+<body>
+	<a href="..">&larr; Return to Celestials Databank Directory</a>
+	<h1>{{celestial.name}}</h1>
+	<ul>
+		<li>Type: <%= celestial["Type"] %></li>
+		<% if celestial["Is Zodiac?"] == 'is_zodiac' %>
+			<li>Known Zodiac Symbol</li>
+		<% end %>
+		<% if celestial.has_key?("Orbits") %>
+			<% tmpa = $db_celestials.find{|k| k["id"] == celestial["Orbits"][0] } %>
+			<li>Orbits: <%= "<a href='/databank/celestials/#{tmpa['fields']['slug']}'>#{tmpa['fields']['name']}</a>" %></li>
+		<% end %>
+	</ul>
+	<hr>
+	<% if celestial.has_key?("Copy") %>
+		<% if celestial["Copy"].length > 10 %>
+			<%= celestial["Copy"] %>
+		<% else %>
+			{% include frag_helpneeded.html %}
+		<% end %>
+	<% else %>
+		{% include frag_helpneeded.html %} 
+	<% end %>
+	<hr>
+
+	<% if celestial_plants.count > 0 %>
+		<h3>Associated Plants</h3>
+		<ul>
+		<% celestial_plants.each do |p| %>
+			<li><%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<% if celestial_crystals.count > 0 %>
+		<h3>Associated Crystals</h3>
+		<ul>
+		<% celestial_crystals.each do |p| %>
+			<li><%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<br>
+	{% include basic_footer.html %}
+</body>
+</html>

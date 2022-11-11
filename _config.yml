@@ -1,0 +1,79 @@
+title: Cosmos University
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" 
+url: "https://cosmos.university"
+twitter_username:  
+github_username:   
+
+# Build settings
+plugins:
+  - jekyll-datapage-generator
+  - jekyll-sitemap
+
+
+#This is our page generator for all data content - it scours the data files to produce these pages
+
+page_gen_dirs: true
+page_gen:
+  - data: celestials
+    template: celestial
+    dir: databank/celestials
+    index_files: true
+    name_expr: record['fields']['slug']
+  - data: chakras
+    template: chakra
+    dir: databank/chakras
+    index_files: true
+    name_expr: record['fields']['slug']
+  - data: crystals
+    template: crystal
+    dir: databank/crystals
+    index_files: true
+    name_expr: record['fields']['slug']
+  - data: deities
+    template: deity
+    dir: databank/deities
+    index_files: true
+    name_expr: record['fields']['slug']
+  - data: elements
+    template: element
+    dir: databank/elements
+    index_files: true
+    name_expr: record['fields']['slug']
+  - data: magic_effects
+    template: magic_effect
+    dir: databank/magic-effects
+    index_files: true
+    name_expr: record['fields']['slug']
+  - data: plants
+    template: plant
+    dir: databank/plants
+    index_files: true
+    name_expr: record['fields']['slug']
+
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude:
+   - .sass-cache/
+   - .jekyll-cache/
+   - gemfiles/
+   - Gemfile
+   - Gemfile.lock
+   - node_modules/
+   - vendor/bundle/
+   - vendor/cache/
+   - vendor/gems/
+   - vendor/ruby/
+   - get_data.rb
+   - prepros.config

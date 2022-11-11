@@ -1,0 +1,66 @@
+{% assign magic_effect = page.fields %}
+<% magic_effect = {{magic_effect}}.to_h %>
+
+<% magic_effect_plants = [] %>
+<% magic_effect_crystals = [] %>
+
+<% if magic_effect.has_key?("plants_magical") %>
+	<% magic_effect["plants_magical"].each do |p| %>
+		<% tmpa = $db_plant_magicals.find { |k| k["id"] == p} %>
+		<% magic_effect_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
+	<% end %>
+<% end %>
+
+<% if magic_effect.has_key?("crystals_magical") %>
+	<% magic_effect["crystals_magical"].each do |p| %>
+		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == p} %>
+		<% magic_effect_crystals <<  $db_crystals.find { |k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+	<% end %>
+<% end %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% include basic_head.html %}
+	<title>{{magic_effect.name}}: Spiritual and Scientific Data</title>	
+</head>
+<body>
+	<a href="..">&larr; Return to Magic Effects Databank Directory</a>
+	<h1>{{magic_effect.name}}</h1>
+	<ul>
+		<li>Effect Type: <%= magic_effect["effect_type"].join(", ") %></li>
+	</ul>
+	<hr>
+	<% if magic_effect.has_key?("Copy") %>
+		<% if magic_effect["Copy"].length > 10 %>
+			<%= magic_effect["Copy"] %>
+		<% else %>
+			{% include frag_helpneeded.html %}
+		<% end %>
+	<% else %>
+		{% include frag_helpneeded.html %} 
+	<% end %>
+	<hr>
+
+	<% if magic_effect_plants.count > 0 %>
+		<h3>Associated Plants</h3>
+		<ul>
+		<% magic_effect_plants.each do |p| %>
+			<li><%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<% if magic_effect_crystals.count > 0 %>
+		<h3>Associated Crystals</h3>
+		<ul>
+		<% magic_effect_crystals.each do |p| %>
+			<li><%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<br>
+	{% include basic_footer.html %}
+</body>
+</html>

@@ -1,0 +1,85 @@
+{% assign chakra = page.fields %}
+<% chakra = {{chakra}}.to_h %>
+
+<% chakra_plants = [] %>
+<% chakra_crystals = [] %>
+<% chakra_elements = [] %>
+
+
+<% if chakra.has_key?("plants_magical") %>
+	<% chakra["plants_magical"].each do |p| %>
+		<% tmpa = $db_plant_magicals.find { |k| k["id"] == p} %>
+		<% chakra_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
+	<% end %>
+<% end %>
+
+<% if chakra.has_key?("crystals_magical") %>
+	<% chakra["crystals_magical"].each do |p| %>
+		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == p} %>
+		<% chakra_crystals <<  $db_crystals.find { |k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+	<% end %>
+<% end %>
+
+<% if chakra.has_key?("elements") %>
+	<% chakra["elements"].each do |p| %>
+		<% chakra_elements << $db_elements.find { |k| k["id"] == p} %>
+	<% end %>
+<% end %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% include basic_head.html %}
+	<title>{{chakra.name}}: Spiritual and Scientific Data</title>	
+</head>
+<body>
+	<a href="..">&larr; Return to Chakra Databank Directory</a>
+	<h1>{{chakra.name}}</h1>
+	<ul>
+		<li>Also Known As: <%= chakra["aka"] %></li>
+		<li>System: <%= chakra["system"] %></li>
+	</ul>
+	<hr>
+	<% if chakra.has_key?("Copy") %>
+		<% if chakra["Copy"].length > 10 %>
+			<%= chakra["Copy"] %>
+		<% else %>
+			{% include frag_helpneeded.html %}
+		<% end %>
+	<% else %>
+		{% include frag_helpneeded.html %} 
+	<% end %>
+	<hr>
+
+	<% if chakra_elements.count > 0 %>
+		<h3>Associated Elements</h3>
+		<ul>
+		<% chakra_elements.each do |p| %>
+			<li><%= "<a href='/databank/elements/#{p['fields']['slug']}'>#{p['fields']['name']}</a>"  %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<% if chakra_plants.count > 0 %>
+		<h3>Associated Plants</h3>
+		<ul>
+		<% chakra_plants.each do |p| %>
+			<li><%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<% if chakra_crystals.count > 0 %>
+		<h3>Associated Crystals</h3>
+		<ul>
+		<% chakra_crystals.each do |p| %>
+			<li><%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %></li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<br>
+	{% include basic_footer.html %}
+</body>
+</html>
