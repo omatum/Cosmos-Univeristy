@@ -1,20 +1,23 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    {% include basic_head.html %}
+    <title>Cosmos University: Deities Databank</title>
   </head>
   <body>
     <a href="..">&larr; Return to Databank Directory</a>
     <h1>Cosmos University: Deities Databank</h1>
     <hr>
   	{% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name_common" %}
-  	{% for item in directory_alpha %}
-  	<li>
-  		<a href="{{item.fields.slug}}">
-  			{{item.fields.name_common}}
-  		</a>
-  	</li>
-  	{% endfor %}
+  	<ul>
+      {% for item in directory_alpha %}
+    	<li>
+    		<a href="{{item.fields.slug}}">
+    			{{item.fields.name_common}}
+    		</a>
+    	</li>
+    	{% endfor %}
+    </ul>
     {% include basic_footer.html %}
   </body>
 </html>

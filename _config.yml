@@ -46,7 +46,7 @@ page_gen:
     name_expr: record['fields']['slug']
   - data: magic_effects
     template: magic_effect
-    dir: databank/magic_effects
+    dir: databank/magic-effects
     index_files: true
     name_expr: record['fields']['slug']
   - data: plants

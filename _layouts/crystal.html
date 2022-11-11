@@ -70,13 +70,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	{% include basic_head.html %}
+	<title>{{crystal.name_common}}: Spiritual and Scientific Data</title>	
 </head>
 <body>
 	<a href="..">&larr; Return to Crystals Databank Directory</a>
 	<h1>{{crystal.name_common}}</h1>
 	<% if crystal.has_key?("names_aka") %>
 		<p>Also known as: {{crystal.names_aka}}</p>
+	<% end %>
+	<% if crystal.has_key?("Variety Of") %>
+		<% variety_of_arr = [] %>
+		<% crystal["Variety Of"].each do |o| %>
+			<% variety_of = $db_crystals.find{|k| k["id"] == o } %>
+			<% variety_of_arr << "<a href='/databank/crystals/#{variety_of['fields']['slug']}'>#{variety_of['fields']['name_common']}</a>" %>
+		<% end %>
+		<p>Variety of: <%= variety_of_arr.join(", ") %></p>
+	<% end %>
+	<% if crystal.has_key?("Varieties") %>
+		<% varieties_arr = [] %>
+		<% crystal["Varieties"].each do |o| %>
+			<% variety = $db_crystals.find{|k| k["id"] == o } %>
+			<% varieties_arr << "<a href='/databank/crystals/#{variety['fields']['slug']}'>#{variety['fields']['name_common']}</a>" %>
+		<% end %>
+		<p>Known varieties: <%= varieties_arr.join(", ") %></p>
 	<% end %>
 	<hr>
 	<% if crystal.has_key?("Copy") %>
@@ -93,65 +110,83 @@
 	<hr>
 	<% if crystal_magical_genders.count > 0 %>
 		<h3>Genders</h3>
+		<ul>
 		<% crystal_magical_genders.each do |p| %>
-			<%= p[0] %><br>
+			<li><%= p[0] %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if crystal_magical_planets.count > 0 %>
 		<h3>Planets</h3>
+		<ul>
 		<% crystal_magical_planets.each do |p| %>
-			<%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
+			<li><%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if crystal_magical_zodiacs.count > 0 %>
 		<h3>Zodiacs</h3>
+		<ul>
 		<% crystal_magical_zodiacs.each do |p| %>
-			<%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
+			<li><%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if crystal_magical_elements.count > 0 %>
 		<h3>Elements</h3>
+		<ul>
 		<% crystal_magical_elements.each do |p| %>
-			<%= "<a href='/databank/elements/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
+			<li><%= "<a href='/databank/elements/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if crystal_magical_deities.count > 0 %>
 		<h3>Deities</h3>
+		<ul>
 		<% crystal_magical_deities.each do |p| %>
-			<%= "<a href='/databank/deities/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %><br>
+			<li><%= "<a href='/databank/deities/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if crystal_magical_chakras.count > 0 %>
 		<h3>Chakras</h3>
+		<ul>
 		<% crystal_magical_chakras.each do |p| %>
-			<%= "<a href='/databank/chakras/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>"  %><br>
+			<li><%= "<a href='/databank/chakras/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>"  %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if crystal_magical_effects.count > 0 %>
 		<h3>Magic Effects</h3>
+		<ul>
 		<% crystal_magical_effects.each do |p| %>
-			<%= "<a href='/databank/magic_effects/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
+			<li><%= "<a href='/databank/magic-effects/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if crystal_magical_linked_crystals.count > 0 %>
 		<h3>Affinity with Crystals</h3>
+		<ul>
 		<% crystal_magical_linked_crystals.each do |p| %>
-			<%= "<a href='/databank/crystals/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %><br>
+			<li><%= "<a href='/databank/crystals/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if crystal_magical_linked_plants.count > 0 %>
 		<h3>Affinity with Plants</h3>
+		<ul>
 		<% crystal_magical_linked_plants.each do |p| %>
-			<%= "<a href='/databank/plants/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %><br>
+			<li><%= "<a href='/databank/plants/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 

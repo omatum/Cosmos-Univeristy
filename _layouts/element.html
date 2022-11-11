@@ -29,7 +29,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	{% include basic_head.html %}
+	<title>{{element.name}}: Spiritual and Scientific Data</title>	
 </head>
 <body>
 	<a href="..">&larr; Return to Elements Databank Directory</a>
@@ -49,23 +50,29 @@
 
 	<% if element_chakras.count > 0 %>
 		<h3>Associated Chakras</h3>
+		<ul>
 		<% element_chakras.each do |p| %>
-			<%= "<a href='/databank/chakras/#{p['fields']['slug']}'>#{p['fields']['name']}</a>"  %><br>
+			<li><%= "<a href='/databank/chakras/#{p['fields']['slug']}'>#{p['fields']['name']}</a>"  %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if element_plants.count > 0 %>
 		<h3>Associated Plants</h3>
+		<ul>
 		<% element_plants.each do |p| %>
-			<%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %><br>
+			<li><%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if element_crystals.count > 0 %>
 		<h3>Associated Crystals</h3>
+		<ul>
 		<% element_crystals.each do |p| %>
-			<%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %><br>
+			<li><%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<br>

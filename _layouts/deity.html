@@ -22,7 +22,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	{% include basic_head.html %}
+	<title>{{deity.name_common}}: Spiritual and Historical Data</title>	
 </head>
 <body>
 	<a href="..">&larr; Return to Deities Databank Directory</a>
@@ -41,16 +42,20 @@
 
 	<% if deity_plants.count > 0 %>
 		<h3>Associated Plants</h3>
+		<ul>
 		<% deity_plants.each do |p| %>
-			<%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %><br>
+			<li><%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if deity_crystals.count > 0 %>
 		<h3>Associated Crystals</h3>
+		<ul>
 		<% deity_crystals.each do |p| %>
-			<%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %><br>
+			<li><%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<br>

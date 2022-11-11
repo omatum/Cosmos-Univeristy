@@ -61,10 +61,17 @@
 	<% end %>
 <% end %>
 
+<% if plant.has_key?("crystals_magical") %>
+	<% plant["crystals_magical"].each do |o| %>
+		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == o } %>
+		<% plant_magical_crystals << $db_crystals.select {|k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+	<% end %>
+<% end %>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	{% include basic_head.html %}
+	<title>{{plant.name_common}}: Spiritual and Scientific Data</title>	
 </head>
 <body>
 	<a href="..">&larr; Return to Plants Databank Directory</a>
@@ -72,7 +79,6 @@
 	<% if plant.has_key?("names_aka") %>
 		<p>Also known as: {{plant.names_aka}}</p>
 	<% end %>
-	<hr>
 	<img src="{{plant.image_cover[0].url}}" alt="Botanical Illustration of {{plant.name_common}}" style="max-width:100%;">
 	<br>
 	<i>{{plant.name_scientific}}</i>
@@ -91,58 +97,74 @@
 	<hr>
 	<% if plant_magical_genders.count > 0 %>
 		<h3>Genders</h3>
+		<ul>
 		<% plant_magical_genders.each do |p| %>
-			<%= p %><br>
+			<li><%= p %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if plant_magical_planets.count > 0 %>
 		<h3>Planets</h3>
+		<ul>
 		<% plant_magical_planets.each do |p| %>
-			<%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
+			<li><%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if plant_magical_zodiacs.count > 0 %>
 		<h3>Zodiacs</h3>
+		<ul>
 		<% plant_magical_zodiacs.each do |p| %>
-			<%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
+			<li><%= "<a href='/databank/celestials/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if plant_magical_elements.count > 0 %>
 		<h3>Elements</h3>
+		<ul>
 		<% plant_magical_elements.each do |p| %>
-			<%= "<a href='/databank/elements/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
+			<li><%= "<a href='/databank/elements/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if plant_magical_deities.count > 0 %>
 		<h3>Deities</h3>
+		<ul>
 		<% plant_magical_deities.each do |p| %>
-			<%= "<a href='/databank/deities/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %><br>
+			<li><%= "<a href='/databank/deities/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if plant_magical_chakras.count > 0 %>
 		<h3>Chakras</h3>
+		<ul>
 		<% plant_magical_chakras.each do |p| %>
-			<%= "<a href='/databank/chakras/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>"  %><br>
+			<li><%= "<a href='/databank/chakras/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>"  %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if plant_magical_effects.count > 0 %>
 		<h3>Magic Effects</h3>
+		<ul>
 		<% plant_magical_effects.each do |p| %>
-			<%= "<a href='/databank/magic_effects/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %><br>
+			<li><%= "<a href='/databank/magic-effects/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<% if plant_magical_crystals.count > 0 %>
 		<h3>Affinity with Crystals</h3>
+		<ul>
 		<% plant_magical_crystals.each do |p| %>
-			<%= "<a href='/databank/crystals/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %><br>
+			<li><%= "<a href='/databank/crystals/#{p[0]['fields']['slug']}'>#{p[0]['fields']['name_common']}</a>" %></li>
 		<% end %>
+		</ul>
 	<% end %>
 
 	<br>
