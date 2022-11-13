@@ -12,9 +12,8 @@
   	<ul>
       {% for item in directory_alpha %}
     	<li>
-    		<a href="{{item.fields.slug}}">
-    			{{item.fields.name}}
-    		</a>
+    		<a href="{{item.fields.slug}}">{{item.fields.name}}</a><br>
+        <span>({{item.fields.num_magicals}} Linked Items)</span>
     	</li>
     	{% endfor %}
     </ul>
