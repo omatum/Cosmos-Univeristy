@@ -43,8 +43,15 @@
 	<% if deity_plants.count > 0 %>
 		<h3>Associated Plants</h3>
 		<ul>
-		<% deity_plants.each do |p| %>
-			<li><%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %></li>
+		<% deity_plants.sort_by! {|k|k["fields"]["name_common"]} %>
+		<% tally_arr = deity_plants.tally %>
+		<% tally_arr.each do |p,k| %>
+			<li>
+				<%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %>
+				<% if k > 1 %>
+					<br><span>(<%= k %> sources agree)</span>
+				<% end %>		
+			</li>
 		<% end %>
 		</ul>
 	<% end %>
@@ -52,8 +59,15 @@
 	<% if deity_crystals.count > 0 %>
 		<h3>Associated Crystals</h3>
 		<ul>
-		<% deity_crystals.each do |p| %>
-			<li><%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %></li>
+		<% deity_crystals.sort_by! {|k|k["fields"]["name_common"]} %>
+		<% tally_arr = deity_crystals.tally %>
+		<% tally_arr.each do |p,k| %>
+			<li>
+				<%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %>
+				<% if k > 1 %>
+					<br><span>(<%= k %> sources agree)</span>
+				<% end %>		
+			</li>
 		<% end %>
 		</ul>
 	<% end %>
