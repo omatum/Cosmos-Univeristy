@@ -2,5 +2,5 @@
 and (orientation: portrait) {
   nav{display:none;}
   body{height:auto;overflow:visible;}
-  .outer-wrap{height:auto;}
+  .outer-wrap{height:auto;overflow-y:visible;display:block;}
 }

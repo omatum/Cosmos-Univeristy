@@ -292,5 +292,7 @@ nav::after {
 
   .outer-wrap {
     height: auto;
+    overflow-y: visible;
+    display: block;
   }
 }
