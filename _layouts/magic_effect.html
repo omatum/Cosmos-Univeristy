@@ -22,24 +22,14 @@
 <html>
 <head>
 	{% include basic_head.html %}
-	<title>{{magic_effect.name}}: Spiritual and Scientific Data</title>	
+	<title>{{magic_effect.name}} Effect: Spiritual and Scientific Data</title>	
 </head>
 <body>
 	<a href="..">&larr; Return to Magic Effects Databank Directory</a>
 	<h1>{{magic_effect.name}}</h1>
 	<ul>
-		<li>Effect Type: <%= magic_effect["effect_type"].join(", ") %></li>
+		<li>Effect Type(s): <%= magic_effect["effect_type"].join(", ") %></li>
 	</ul>
-	<hr>
-	<% if magic_effect.has_key?("Copy") %>
-		<% if magic_effect["Copy"].length > 10 %>
-			<%= magic_effect["Copy"] %>
-		<% else %>
-			{% include frag_helpneeded.html %}
-		<% end %>
-	<% else %>
-		{% include frag_helpneeded.html %} 
-	<% end %>
 	<hr>
 
 	<% if magic_effect_plants.count > 0 %>
@@ -73,8 +63,17 @@
 		<% end %>
 		</ul>
 	<% end %>
-
-	<br>
+	<hr>
+	<% if magic_effect.has_key?("Copy") %>
+		<% if magic_effect["Copy"].length > 10 %>
+			<%= magic_effect["Copy"] %>
+		<% else %>
+			{% include frag_helpneeded.html %}
+		<% end %>
+	<% else %>
+		{% include frag_helpneeded.html %} 
+	<% end %>
+	
 	{% include basic_footer.html %}
 </body>
 </html>
