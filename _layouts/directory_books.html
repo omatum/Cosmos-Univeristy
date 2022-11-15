@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include basic_head.html %}
+    <title>Cosmos University: Books Databank</title>
+  </head>
+  <body>
+    <a href="..">&larr; Return to Databank Directory</a>
+    <h1>Cosmos University: Books Databank</h1>
+    <hr>
+  	{% assign directory_alpha = site.data[page.directory_for] | sort: "fields.title" %}
+  	<ul>
+      {% for item in directory_alpha %}
+    	<li>
+    		<a href="{{item.fields.slug}}">
+    			{{item.fields.title}}
+    		</a>
+        <br>
+        <span>---{{item.fields.Status}}</span>
+    	</li>
+    	{% endfor %}
+    </ul>
+      {% include basic_footer.html %}
+  </body>
+</html>

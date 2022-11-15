@@ -19,6 +19,11 @@ plugins:
 
 page_gen_dirs: true
 page_gen:
+  - data: books
+    template: book
+    dir: databank/books
+    index_files: true
+    name_expr: record['fields']['slug']
   - data: celestials
     template: celestial
     dir: databank/celestials

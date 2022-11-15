@@ -1,0 +1,42 @@
+{% assign book = page.fields %}
+<% book = {{book}}.to_h %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% include basic_head.html %}
+	<title>{{book.title}}: Cosmos University Data</title>	
+</head>
+<body>
+	<a href="..">&larr; Return to Books Databank Directory</a>
+	<h1>{{book.title}}</h1>
+	<ul>
+		<% if book.has_key?("author_rollup")%>
+			<li>Authored by: <%= book["author_rollup"] %></li>
+		<% end %>
+	</ul>
+	<hr>
+	<% if book.has_key?("Copy") %>
+		<% if book["Copy"].length > 10 %>
+			<%= book["Copy"] %>
+		<% else %>
+			{% include frag_helpneeded.html %}
+		<% end %>
+	<% else %>
+		{% include frag_helpneeded.html %} 
+	<% end %>
+	<hr>
+
+	<% if book["Data References"] > 0 %>
+		<h3>Referenced Data</h3>
+		<ul>
+			<li>
+				<span>This source is referenced in <%= book["Data References"] %> data points.</span>
+			</li>
+		</ul>
+	<% end %>
+
+	<br>
+	{% include basic_footer.html %}
+</body>
+</html>
