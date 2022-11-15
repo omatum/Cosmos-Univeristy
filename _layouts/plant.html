@@ -118,7 +118,7 @@
 		<% tally_arr = plant_magical_planets.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/celestials/#{p['fields']['slug']}'>#{p['fields']['name']}</a>" %>
+				<%= "<a href='/databank/celestials/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>		
@@ -134,7 +134,7 @@
 		<% tally_arr = plant_magical_zodiacs.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/celestials/#{p['fields']['slug']}'>#{p['fields']['name']}</a>" %>
+				<%= "<a href='/databank/celestials/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>
@@ -150,7 +150,7 @@
 		<% tally_arr = plant_magical_elements.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/elements/#{p['fields']['slug']}'>#{p['fields']['name']}</a>" %>
+				<%= "<a href='/databank/elements/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>		
@@ -166,7 +166,7 @@
 		<% tally_arr = plant_magical_deities.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/deities/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %>
+				<%= "<a href='/databank/deities/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>		
@@ -182,7 +182,7 @@
 		<% tally_arr = plant_magical_chakras.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/chakras/#{p['fields']['slug']}'>#{p['fields']['name']}</a>"  %>
+				<%= "<a href='/databank/chakras/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>"  %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>		
@@ -198,7 +198,7 @@
 		<% tally_arr = plant_magical_effects.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/magic-effects/#{p['fields']['slug']}'>#{p['fields']['name']}</a>" %>
+				<%= "<a href='/databank/magic-effects/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>		
@@ -214,7 +214,7 @@
 		<% tally_arr = plant_magical_crystals.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %>
+				<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>

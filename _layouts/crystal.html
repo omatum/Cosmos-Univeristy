@@ -83,7 +83,7 @@
 		<% variety_of_arr = [] %>
 		<% crystal["Variety Of"].each do |o| %>
 			<% variety_of = $db_crystals.find{|k| k["id"] == o } %>
-			<% variety_of_arr << "<a href='/databank/crystals/#{variety_of['fields']['slug']}'>#{variety_of['fields']['name_common']}</a>" %>
+			<% variety_of_arr << "<a href='/databank/crystals/#{variety_of['fields']['slug']}/'>#{variety_of['fields']['name_common']}</a>" %>
 		<% end %>
 		<p>Variety of: <%= variety_of_arr.join(", ") %></p>
 	<% end %>
@@ -91,7 +91,7 @@
 		<% varieties_arr = [] %>
 		<% crystal["Varieties"].each do |o| %>
 			<% variety = $db_crystals.find{|k| k["id"] == o } %>
-			<% varieties_arr << "<a href='/databank/crystals/#{variety['fields']['slug']}'>#{variety['fields']['name_common']}</a>" %>
+			<% varieties_arr << "<a href='/databank/crystals/#{variety['fields']['slug']}/'>#{variety['fields']['name_common']}</a>" %>
 		<% end %>
 		<p>Known varieties: <%= varieties_arr.join(", ") %></p>
 	<% end %>
@@ -131,7 +131,7 @@
 		<% tally_arr = crystal_magical_planets.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/celestials/#{p['fields']['slug']}'>#{p['fields']['name']}</a>" %>
+				<%= "<a href='/databank/celestials/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>
@@ -147,7 +147,7 @@
 		<% tally_arr = crystal_magical_zodiacs.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/celestials/#{p['fields']['slug']}'>#{p['fields']['name']}</a>" %>
+				<%= "<a href='/databank/celestials/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>
@@ -163,7 +163,7 @@
 		<% tally_arr = crystal_magical_elements.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/elements/#{p['fields']['slug']}'>#{p['fields']['name']}</a>" %>
+				<%= "<a href='/databank/elements/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>
@@ -179,7 +179,7 @@
 		<% tally_arr = crystal_magical_deities.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/deities/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %>
+				<%= "<a href='/databank/deities/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>
@@ -195,7 +195,7 @@
 		<% tally_arr = crystal_magical_chakras.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/chakras/#{p['fields']['slug']}'>#{p['fields']['name']}</a>"  %>
+				<%= "<a href='/databank/chakras/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>"  %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>
@@ -211,7 +211,7 @@
 		<% tally_arr = crystal_magical_effects.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/magic-effects/#{p['fields']['slug']}'>#{p['fields']['name']}</a>" %>
+				<%= "<a href='/databank/magic-effects/#{p['fields']['slug']}/'>#{p['fields']['name']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>
@@ -227,7 +227,7 @@
 		<% tally_arr = crystal_magical_linked_crystals.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %>
+				<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>
@@ -243,7 +243,7 @@
 		<% tally_arr = crystal_magical_linked_plants.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %>
+				<%= "<a href='/databank/plants/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>

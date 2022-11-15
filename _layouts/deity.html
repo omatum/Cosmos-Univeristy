@@ -47,7 +47,7 @@
 		<% tally_arr = deity_plants.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/plants/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>"  %>
+				<%= "<a href='/databank/plants/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>"  %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>		
@@ -63,7 +63,7 @@
 		<% tally_arr = deity_crystals.tally %>
 		<% tally_arr.each do |p,k| %>
 			<li>
-				<%= "<a href='/databank/crystals/#{p['fields']['slug']}'>#{p['fields']['name_common']}</a>" %>
+				<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
 				<% if k > 1 %>
 					<br><span>(<%= k %> sources agree)</span>
 				<% end %>		
