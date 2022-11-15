@@ -82,3 +82,6 @@ exclude:
    - vendor/ruby/
    - get_data.rb
    - prepros.config
+   - "*.scss"
+   - src/js/builds/
+   - _src/

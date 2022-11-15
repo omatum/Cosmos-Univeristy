@@ -1,5 +1,6 @@
 {% assign magic_effect = page.fields %}
 <% magic_effect = {{magic_effect}}.to_h %>
+<% page_category = "magic_effects" %>
 
 <% magic_effect_plants = [] %>
 <% magic_effect_crystals = [] %>
@@ -25,55 +26,60 @@
 	<title>{{magic_effect.name}} Effect: Spiritual and Scientific Data</title>	
 </head>
 <body>
-	<a href="..">&larr; Return to Magic Effects Databank Directory</a>
-	<h1>{{magic_effect.name}}</h1>
-	<ul>
-		<li>Effect Type(s): <%= magic_effect["effect_type"].join(", ") %></li>
-	</ul>
-	<hr>
+	<div class="outer-wrap">
+		{% include _nav.html %}
+		<section class="content">
+				<a href="..">&larr; Return to Magic Effects Databank Directory</a>
+				<h1>{{magic_effect.name}}</h1>
+				<ul>
+					<li>Effect Type(s): <%= magic_effect["effect_type"].join(", ") %></li>
+				</ul>
+				<hr>
 
-	<% if magic_effect_plants.count > 0 %>
-		<h3>Associated Plants</h3>
-		<ul>
-		<% magic_effect_plants.sort_by! {|k|k["fields"]["name_common"]} %>
-		<% tally_arr = magic_effect_plants.tally %>
-		<% tally_arr.each do |p,k| %>
-			<li>
-				<%= "<a href='/databank/plants/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>"  %>
-				<% if k > 1 %>
-					<br><span>(<%= k %> sources agree)</span>
-				<% end %>		
-			</li>
-		<% end %>
-		</ul>
-	<% end %>
+				<% if magic_effect_plants.count > 0 %>
+					<h3>Associated Plants</h3>
+					<ul>
+					<% magic_effect_plants.sort_by! {|k|k["fields"]["name_common"]} %>
+					<% tally_arr = magic_effect_plants.tally %>
+					<% tally_arr.each do |p,k| %>
+						<li>
+							<%= "<a href='/databank/plants/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>"  %>
+							<% if k > 1 %>
+								<br><span>(<%= k %> sources agree)</span>
+							<% end %>		
+						</li>
+					<% end %>
+					</ul>
+				<% end %>
 
-	<% if magic_effect_crystals.count > 0 %>
-		<h3>Associated Crystals</h3>
-		<ul>
-		<% magic_effect_crystals.sort_by!{|k|k["fields"]["name_common"]} %>
-		<% tally_arr = magic_effect_crystals.tally %>
-		<% tally_arr.each do |p,k| %>
-			<li>
-				<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
-				<% if k > 1 %>
-					<br><span>(<%= k %> sources agree)</span>
-				<% end %>		
-			</li>
-		<% end %>
-		</ul>
-	<% end %>
-	<hr>
-	<% if magic_effect.has_key?("Copy") %>
-		<% if magic_effect["Copy"].length > 10 %>
-			<%= magic_effect["Copy"] %>
-		<% else %>
-			{% include frag_helpneeded.html %}
-		<% end %>
-	<% else %>
-		{% include frag_helpneeded.html %} 
-	<% end %>
-	
-	{% include basic_footer.html %}
+				<% if magic_effect_crystals.count > 0 %>
+					<h3>Associated Crystals</h3>
+					<ul>
+					<% magic_effect_crystals.sort_by!{|k|k["fields"]["name_common"]} %>
+					<% tally_arr = magic_effect_crystals.tally %>
+					<% tally_arr.each do |p,k| %>
+						<li>
+							<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
+							<% if k > 1 %>
+								<br><span>(<%= k %> sources agree)</span>
+							<% end %>		
+						</li>
+					<% end %>
+					</ul>
+				<% end %>
+				<hr>
+				<% if magic_effect.has_key?("Copy") %>
+					<% if magic_effect["Copy"].length > 10 %>
+						<%= magic_effect["Copy"] %>
+					<% else %>
+						{% include frag_helpneeded.html %}
+					<% end %>
+				<% else %>
+					{% include frag_helpneeded.html %} 
+				<% end %>
+				
+				{% include basic_footer.html %}
+		</section>
+	</div>
 </body>
 </html>

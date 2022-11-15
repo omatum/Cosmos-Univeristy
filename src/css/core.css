@@ -1,0 +1,288 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.wht-lt {
+  font-family: "Whitney A", "Whitney B";
+  font-style: normal;
+  font-weight: 300;
+}
+
+.wht-md {
+  font-family: "Whitney A", "Whitney B";
+  font-style: normal;
+  font-weight: 500;
+}
+
+.wht-bd {
+  font-family: "Whitney A", "Whitney B";
+  font-style: normal;
+  font-weight: 700;
+}
+
+.htf-ro-sc {
+  font-family: "Hoefler Text A", "Hoefler Text B";
+  font-style: normal;
+  font-weight: 400;
+}
+
+html {
+  font-size: calc(15px + 0.390625vw);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 0.67rem;
+  margin-bottom: 0.67rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0.83rem;
+  margin-bottom: 0.83rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.17rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+code {
+  font-size: 0.7rem;
+  font-family: monospace;
+}
+
+li {
+  line-height: 1rem;
+  margin-bottom: 1rem;
+  display: list-item;
+}
+
+li span {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+ul {
+  margin-bottom: 2rem;
+  list-style-type: disc;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+i {
+  font-style: italic;
+}
+
+b {
+  font-weight: bold;
+}
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#cosmosFavico {
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.outer-wrap {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+section.content {
+  padding: calc(8px + 1.5625vw);
+  overflow-y: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+}
+
+nav {
+  position: relative;
+  background-color: black;
+  min-height: 100vh;
+  color: white;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 16%;
+          flex: 0 0 16%;
+  padding-top: 1.5rem;
+}
+nav .nav-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+nav .logo-group {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+nav .logo-group img {
+  width: 70%;
+  margin-bottom: 0.3rem;
+}
+nav .logo-group .bar-rainbow {
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(249, 72, 114)), color-stop(20%, rgb(255, 157, 51)), color-stop(40%, rgb(255, 219, 69)), color-stop(60%, rgb(152, 219, 22)), color-stop(80%, rgb(94, 210, 229)), to(rgb(156, 140, 234)));
+  background: linear-gradient(90deg, rgb(249, 72, 114) 0%, rgb(255, 157, 51) 20%, rgb(255, 219, 69) 40%, rgb(152, 219, 22) 60%, rgb(94, 210, 229) 80%, rgb(156, 140, 234) 100%);
+  border-radius: 100%;
+}
+nav .logo-group .tagline {
+  font-size: 0.6rem;
+  color: rgb(77, 77, 77);
+  letter-spacing: 0.22rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+nav .links-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+}
+nav .links-group .link-group {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+nav .links-group .list-title {
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  margin-bottom: 0.3rem;
+  color: white;
+}
+nav .links-group .list-title a {
+  color: white;
+  text-decoration: none;
+}
+nav .links-group .sections {
+  text-align: left;
+}
+nav .links-group .databanks {
+  text-align: right;
+}
+nav .links-group ul {
+  list-style: none;
+  text-transform: lowercase;
+  font-size: 0.6rem;
+  padding: 0;
+  margin: 0;
+}
+nav .links-group li {
+  margin-bottom: 0.3rem;
+  position: relative;
+}
+nav .links-group li a {
+  color: white;
+  text-decoration: none;
+}
+nav .links-group li a:hover {
+  font-weight: 700;
+}
+nav .links-group li.current {
+  font-weight: 500;
+}
+nav .links-group li.current::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1px;
+  border-bottom: 2px dotted white;
+  position: absolute;
+  right: -115px;
+  top: calc(50% - 1px);
+}
+
+nav::after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: -6px;
+  background-color: black;
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  nav {
+    display: none;
+  }
+}

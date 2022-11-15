@@ -1,5 +1,6 @@
 {% assign celestial = page.fields %}
 <% celestial = {{celestial}}.to_h %>
+<% page_category = "celestials" %>
 
 <% celestial_crystals = [] %>
 <% celestial_plants = [] %>
@@ -31,63 +32,68 @@
 	<title>{{celestial.name}}: Spiritual and Scientific Data</title>	
 </head>
 <body>
-	<a href="..">&larr; Return to Celestials Databank Directory</a>
-	<h1>{{celestial.name}}</h1>
-	<ul>
-		<li>Type: <%= celestial["Type"] %></li>
-		<% if celestial["Is Zodiac?"] == 'is_zodiac' %>
-			<li>Known Zodiac Symbol</li>
-		<% end %>
-		<% if celestial.has_key?("Orbits") %>
-			<% tmpa = $db_celestials.find{|k| k["id"] == celestial["Orbits"][0] } %>
-			<li>Orbits: <%= "<a href='/databank/celestials/#{tmpa['fields']['slug']}/'>#{tmpa['fields']['name']}</a>" %></li>
-		<% end %>
-	</ul>
-	<hr>
-	<% if celestial.has_key?("Copy") %>
-		<% if celestial["Copy"].length > 10 %>
-			<%= celestial["Copy"] %>
-		<% else %>
-			{% include frag_helpneeded.html %}
-		<% end %>
-	<% else %>
-		{% include frag_helpneeded.html %} 
-	<% end %>
-	<hr>
-
-	<% if celestial_plants.count > 0 %>
-		<h3>Associated Plants</h3>
-		<ul>
-		<% celestial_plants.sort_by! {|k|k["fields"]["name_common"]} %>
-		<% tally_arr = celestial_plants.tally %>
-		<% tally_arr.each do |p,k| %>
-			<li>
-				<%= "<a href='/databank/plants/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>"  %>
-				<% if k > 1 %>
-					<br><span>(<%= k %> sources agree)</span>
+	<div class="outer-wrap">
+		{% include _nav.html %}
+		<section class="content">
+			<a href="..">&larr; Return to Celestials Databank Directory</a>
+			<h1>{{celestial.name}}</h1>
+			<ul>
+				<li>Type: <%= celestial["Type"] %></li>
+				<% if celestial["Is Zodiac?"] == 'is_zodiac' %>
+					<li>Known Zodiac Symbol</li>
 				<% end %>
-			</li>
-		<% end %>
-		</ul>
-	<% end %>
-
-	<% if celestial_crystals.count > 0 %>
-		<h3>Associated Crystals</h3>
-		<ul>
-		<% celestial_crystals.sort_by! {|k|k["fields"]["name_common"]} %>
-		<% tally_arr = celestial_crystals.tally %>
-		<% tally_arr.each do |p,k| %>
-			<li>
-				<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
-				<% if k > 1 %>
-					<br><span>(<%= k %> sources agree)</span>
+				<% if celestial.has_key?("Orbits") %>
+					<% tmpa = $db_celestials.find{|k| k["id"] == celestial["Orbits"][0] } %>
+					<li>Orbits: <%= "<a href='/databank/celestials/#{tmpa['fields']['slug']}/'>#{tmpa['fields']['name']}</a>" %></li>
 				<% end %>
-			</li>
-		<% end %>
-		</ul>
-	<% end %>
+			</ul>
+			<hr>
+			<% if celestial.has_key?("Copy") %>
+				<% if celestial["Copy"].length > 10 %>
+					<%= celestial["Copy"] %>
+				<% else %>
+					{% include frag_helpneeded.html %}
+				<% end %>
+			<% else %>
+				{% include frag_helpneeded.html %} 
+			<% end %>
+			<hr>
 
-	<br>
-	{% include basic_footer.html %}
+			<% if celestial_plants.count > 0 %>
+				<h3>Associated Plants</h3>
+				<ul>
+				<% celestial_plants.sort_by! {|k|k["fields"]["name_common"]} %>
+				<% tally_arr = celestial_plants.tally %>
+				<% tally_arr.each do |p,k| %>
+					<li>
+						<%= "<a href='/databank/plants/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>"  %>
+						<% if k > 1 %>
+							<br><span>(<%= k %> sources agree)</span>
+						<% end %>
+					</li>
+				<% end %>
+				</ul>
+			<% end %>
+
+			<% if celestial_crystals.count > 0 %>
+				<h3>Associated Crystals</h3>
+				<ul>
+				<% celestial_crystals.sort_by! {|k|k["fields"]["name_common"]} %>
+				<% tally_arr = celestial_crystals.tally %>
+				<% tally_arr.each do |p,k| %>
+					<li>
+						<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
+						<% if k > 1 %>
+							<br><span>(<%= k %> sources agree)</span>
+						<% end %>
+					</li>
+				<% end %>
+				</ul>
+			<% end %>
+
+			<br>
+			{% include basic_footer.html %}
+		</section>
+	</div>
 </body>
 </html>

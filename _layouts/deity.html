@@ -1,5 +1,6 @@
 {% assign deity = page.fields %}
 <% deity = {{deity}}.to_h %>
+<% page_category = "deities" %>
 
 <% deity_plants = [] %>
 <% deity_crystals = [] %>
@@ -26,53 +27,58 @@
 	<title>{{deity.name_common}}: Spiritual and Historical Data</title>	
 </head>
 <body>
-	<a href="..">&larr; Return to Deities Databank Directory</a>
-	<h1>{{deity.name_common}}</h1>
-	<hr>
-	<% if deity.has_key?("Copy") %>
-		<% if deity["Copy"].length > 10 %>
-			<%= deity["Copy"] %>
-		<% else %>
-			{% include frag_helpneeded.html %}
-		<% end %>
-	<% else %>
-		{% include frag_helpneeded.html %} 
-	<% end %>
-	<hr>
+	<div class="outer-wrap">
+		{% include _nav.html %}
+		<section class="content">
+			<a href="..">&larr; Return to Deities Databank Directory</a>
+			<h1>{{deity.name_common}}</h1>
+			<hr>
+			<% if deity.has_key?("Copy") %>
+				<% if deity["Copy"].length > 10 %>
+					<%= deity["Copy"] %>
+				<% else %>
+					{% include frag_helpneeded.html %}
+				<% end %>
+			<% else %>
+				{% include frag_helpneeded.html %} 
+			<% end %>
+			<hr>
 
-	<% if deity_plants.count > 0 %>
-		<h3>Associated Plants</h3>
-		<ul>
-		<% deity_plants.sort_by! {|k|k["fields"]["name_common"]} %>
-		<% tally_arr = deity_plants.tally %>
-		<% tally_arr.each do |p,k| %>
-			<li>
-				<%= "<a href='/databank/plants/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>"  %>
-				<% if k > 1 %>
-					<br><span>(<%= k %> sources agree)</span>
-				<% end %>		
-			</li>
-		<% end %>
-		</ul>
-	<% end %>
+			<% if deity_plants.count > 0 %>
+				<h3>Associated Plants</h3>
+				<ul>
+				<% deity_plants.sort_by! {|k|k["fields"]["name_common"]} %>
+				<% tally_arr = deity_plants.tally %>
+				<% tally_arr.each do |p,k| %>
+					<li>
+						<%= "<a href='/databank/plants/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>"  %>
+						<% if k > 1 %>
+							<br><span>(<%= k %> sources agree)</span>
+						<% end %>		
+					</li>
+				<% end %>
+				</ul>
+			<% end %>
 
-	<% if deity_crystals.count > 0 %>
-		<h3>Associated Crystals</h3>
-		<ul>
-		<% deity_crystals.sort_by! {|k|k["fields"]["name_common"]} %>
-		<% tally_arr = deity_crystals.tally %>
-		<% tally_arr.each do |p,k| %>
-			<li>
-				<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
-				<% if k > 1 %>
-					<br><span>(<%= k %> sources agree)</span>
-				<% end %>		
-			</li>
-		<% end %>
-		</ul>
-	<% end %>
+			<% if deity_crystals.count > 0 %>
+				<h3>Associated Crystals</h3>
+				<ul>
+				<% deity_crystals.sort_by! {|k|k["fields"]["name_common"]} %>
+				<% tally_arr = deity_crystals.tally %>
+				<% tally_arr.each do |p,k| %>
+					<li>
+						<%= "<a href='/databank/crystals/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
+						<% if k > 1 %>
+							<br><span>(<%= k %> sources agree)</span>
+						<% end %>		
+					</li>
+				<% end %>
+				</ul>
+			<% end %>
 
-	<br>
-	{% include basic_footer.html %}
+			<br>
+			{% include basic_footer.html %}
+		</section>
+	</div>
 </body>
 </html>

@@ -1,0 +1,19 @@
+html {font-size: calc(15px + 0.390625vw);}
+h1 {font-size: 2rem;margin-top:.67rem;margin-bottom:.67rem;font-weight:bold;}
+h2 {font-size: 1.5rem;margin-top:.83rem;margin-bottom:.83rem;font-weight:bold;}
+h3{font-size: 1.17rem;margin-top:1rem;margin-bottom:1rem;font-weight:bold;}
+code{font-size: .7rem;font-family:monospace;}
+li{line-height: 1rem;margin-bottom: 1rem;display:list-item;}
+li span{font-size: .9rem;font-style: italic}
+ul{margin-bottom: 2rem;list-style-type:disc;margin-top:1rem;margin-bottom:1rem;padding-left:2rem;}
+i{font-style:italic;}
+b{font-weight:bold;}
+p{margin-top:1rem;margin-bottom:1rem;}
+
+body{overflow:hidden;height:100vh;}
+
+#cosmosFavico{image-rendering: pixelated; image-rendering: crisp-edges;}
+
+.outer-wrap{width:100%;padding:0;margin:0;position:relative;display:flex;height:100%;}
+
+section.content{padding: calc(8px + 1.5625vw);overflow-y:auto;flex:1 1 100%;}

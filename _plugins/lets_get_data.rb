@@ -29,3 +29,72 @@ $db_traditions = JSON.parse(File.read(File.expand_path("../../_data/traditions.j
 $source_count = $db_books.count
 
 $total_datapoints = $db_books.count + $db_celestials.count + $db_chakras.count + $db_companies.count + $db_crystals.count + $db_crystals_magicals.count + $db_cycles.count + $db_cycles_rhythms.count + $db_deities.count + $db_elements.count + $db_institutions.count + $db_magic_effects.count + $db_magic_schools.count + $db_numbers.count + $db_people.count + $db_plant_magicals.count + $db_plants.count + $db_religions.count + $db_rituals.count + $db_rituals.count + $db_sourcebank_image_plants.count + $db_tarot_deck_cards.count + $db_tarot_decks.count + $db_tarots.count + $db_traditions.count
+
+
+$nav_databanks = {
+  live:
+  {
+    databanks:
+    [
+      {
+        title: "Books",
+        for: "books",
+        dir_url: "/databank/books/",
+        num_records: $db_books.count 
+      },
+      {
+        title: "Celestials",
+        for: "celestials",
+        dir_url: "/databank/celestials/",
+        num_records: $db_celestials.count
+      },
+      {
+        title: "Chakras",
+        for: "chakras",
+        dir_url: "/databank/chakras/",
+        num_records: $db_chakras.count
+      },
+      {
+        title: "Crystals",
+        for: "crystals",
+        dir_url: "/databank/crystals/",
+        num_records: $db_crystals.count
+      },
+      {
+        title: "Deities",
+        for: "deities",
+        dir_url: "/databank/deities/",
+        num_records: $db_deities.count
+      },
+      {
+        title: "Elements",
+        for: "elements",
+        dir_url: "/databank/elements/",
+        num_records: $db_elements.count
+      },
+      {
+        title: "Magical Effects",
+        for: "magic_effects",
+        dir_url: "/databank/magic-effects/",
+        num_records: $db_magic_effects.count
+      },
+      {
+        title: "Plants",
+        for: "plants",
+        dir_url: "/databank/plants/",
+        num_records: $db_plants.count
+      }
+    ],
+    sections:
+    [
+      {
+        title: "Homepage",
+        url:"/"
+      }
+    ]
+  },
+  upcoming:  
+  [
+    {}
+  ]
+}

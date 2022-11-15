@@ -1,3 +1,4 @@
+<% page_category = "celestials" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,19 +6,24 @@
     <title>Cosmos University: Celestial Databank</title>
   </head>
   <body>
-    <a href="..">&larr; Return to Databank Directory</a>
-    <h1>Cosmos University: Celestials Databank</h1>
-    <hr>
-  	{% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}
-  	<ul>
-      {% for item in directory_alpha %}
-    	<li>
-    		<a href="{{item.fields.slug}}/">
-    			{{item.fields.name}}
-    		</a>
-    	</li>
-    	{% endfor %}
-    </ul>
-    {% include basic_footer.html %}
+    <div class="outer-wrap">
+      {% include _nav.html %}
+      <section class="content">
+        <a href="..">&larr; Return to Databank Directory</a>
+        <h1>Cosmos University: Celestials Databank</h1>
+        <hr>
+        {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}
+        <ul>
+          {% for item in directory_alpha %}
+          <li>
+            <a href="{{item.fields.slug}}/">
+              {{item.fields.name}}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% include basic_footer.html %}
+      </section>
+    </div>
   </body>
 </html>

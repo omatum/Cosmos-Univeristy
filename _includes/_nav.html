@@ -1,0 +1,39 @@
+<nav>
+  <div class="nav-wrap">
+    <div class="logo-group">
+      <img src="/src/img/cosmos-university-logo-text.svg">
+      <div class="bar-rainbow"></div>
+      <div class="tagline htf-ro-sc">Visibilia ex Invisibilibus</div>
+    </div>
+    <div class="links-group">
+      <div class="link-group sections">
+        <div class="list-title wht-bd">Sections</div>
+        <ul class="wht-lt">
+          <% $nav_databanks[:live][:sections].each do |p| %>
+          <li>
+            <a href="<%= p[:url] %>">
+              <%= p[:title] %>
+            </a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="link-group databanks">
+        <div class="list-title wht-bd"><a href="/databank/">Databanks</a></div>
+        <ul class="wht-lt">
+          <% $nav_databanks[:live][:databanks].each do |p| %>
+          <% if p[:for] == page_category %>
+            <li class="current">
+          <% else %>
+            <li>
+          <% end %>
+            <a href="<%= p[:dir_url] %>">
+              <%= p[:title] %>
+            </a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
