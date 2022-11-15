@@ -1,6 +1,6 @@
 @media screen and (max-device-width: 480px)
 and (orientation: portrait) {
   nav{display:none;}
-  body{height:auto;}
+  body{height:auto;overflow:visible;}
   .outer-wrap{height:auto;}
 }
