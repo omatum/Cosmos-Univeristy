@@ -118,7 +118,6 @@ li span {
 }
 
 ul {
-  margin-bottom: 2rem;
   list-style-type: disc;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -284,5 +283,16 @@ nav::after {
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
   nav {
     display: none;
+  }
+
+  body {
+    height: auto;
+    overflow: visible;
+  }
+
+  .outer-wrap {
+    height: auto;
+    overflow-y: visible;
+    display: block;
   }
 }
