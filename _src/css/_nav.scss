@@ -5,7 +5,7 @@ nav
   .logo-group
   {
     &{width:90%;margin:0 auto;text-align:center;}
-    img{width:70%;margin-bottom:.3rem;}
+    svg{width:70%;margin-bottom:.3rem;}
     .bar-rainbow{width:100%;height:2px;background: linear-gradient(90deg, rgba(249,72,114,1) 0%, rgba(255,157,51,1) 20%, rgba(255,219,69,1) 40%, rgba(152,219,22,1) 60%, rgba(94,210,229,1) 80%, rgba(156,140,234,1) 100%);border-radius:100%;}
     .tagline{font-size:.6rem;color:rgb(77,77,77);letter-spacing:.22rem;margin-top:.3rem;margin-bottom:1.5rem;}
   }

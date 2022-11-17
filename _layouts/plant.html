@@ -3,12 +3,6 @@
 <% page_category = "plants" %>
 
 <% plant_magicals = [] %>
-<% if plant["num_magicals"] > 0 %>
-	<% plant["plants_magical"].each do |p| %>
-		<% plant_magicals << $db_plant_magicals.select { |k| k["id"] == p } %>
-	<% end %>
-<% end %>
-
 <% plant_magical_sources = [] %>
 <% plant_magical_genders = [] %>
 <% plant_magical_planets = [] %>
@@ -18,49 +12,52 @@
 <% plant_magical_chakras = [] %>
 <% plant_magical_effects = [] %>
 <% plant_magical_crystals = [] %>
-
-<% plant_magicals.each do |p| %>
-	<% this_item = p[0]["fields"] %>
-	<% if this_item.has_key?("Gender") %>
-		<% plant_magical_genders << this_item["Gender"] %>
+<% if plant["num_magicals"] > 0 %>
+	<% plant["plants_magical"].each do |p| %>
+		<% plant_magicals << $db_plant_magicals.select { |k| k["id"] == p } %>
 	<% end %>
-	<% if this_item.has_key?("Planet") %>
-		<% this_item["Planet"].each do |o| %>
-			<% plant_magical_planets << $db_celestials.find {|k| k["id"] == o} %>
+	<% plant_magicals.each do |p| %>
+		<% this_item = p[0]["fields"] %>
+		<% if this_item.has_key?("Gender") %>
+			<% plant_magical_genders << this_item["Gender"] %>
 		<% end %>
-	<% end %>
-	<% if this_item.has_key?("Zodiac") %>
-		<% this_item["Zodiac"].each do |o| %>
-			<% plant_magical_zodiacs << $db_celestials.find {|k| k["id"] == o} %>
+		<% if this_item.has_key?("Planet") %>
+			<% this_item["Planet"].each do |o| %>
+				<% plant_magical_planets << $db_celestials.find {|k| k["id"] == o} %>
+			<% end %>
 		<% end %>
-	<% end %>
-	<% if this_item.has_key?("Element") %>
-		<% this_item["Element"].each do |o| %>
-			<% plant_magical_elements << $db_elements.find {|k| k["id"] == o} %>
+		<% if this_item.has_key?("Zodiac") %>
+			<% this_item["Zodiac"].each do |o| %>
+				<% plant_magical_zodiacs << $db_celestials.find {|k| k["id"] == o} %>
+			<% end %>
 		<% end %>
-	<% end %>
-	<% if this_item.has_key?("Deities") %>
-		<% this_item["Deities"].each do |o| %>
-			<% plant_magical_deities << $db_deities.find {|k| k["id"] == o} %>
+		<% if this_item.has_key?("Element") %>
+			<% this_item["Element"].each do |o| %>
+				<% plant_magical_elements << $db_elements.find {|k| k["id"] == o} %>
+			<% end %>
 		<% end %>
-	<% end %>
-	<% if this_item.has_key?("Chakra") %>
-		<% this_item["Chakra"].each do |o| %>
-			<% plant_magical_chakras << $db_chakras.find {|k| k["id"] == o} %>
+		<% if this_item.has_key?("Deities") %>
+			<% this_item["Deities"].each do |o| %>
+				<% plant_magical_deities << $db_deities.find {|k| k["id"] == o} %>
+			<% end %>
 		<% end %>
-	<% end %>
-	<% if this_item.has_key?("Effects") %>
-		<% this_item["Effects"].each do |o| %>
-			<% plant_magical_effects << $db_magic_effects.find {|k| k["id"] == o} %>
+		<% if this_item.has_key?("Chakra") %>
+			<% this_item["Chakra"].each do |o| %>
+				<% plant_magical_chakras << $db_chakras.find {|k| k["id"] == o} %>
+			<% end %>
 		<% end %>
-	<% end %>
-	<% if this_item.has_key?("Linked Crystals") %>
-		<% this_item["Linked Crystals"].each do |o| %>
-			<% plant_magical_crystals << $db_crystals.find {|k| k["id"] == o} %>
+		<% if this_item.has_key?("Effects") %>
+			<% this_item["Effects"].each do |o| %>
+				<% plant_magical_effects << $db_magic_effects.find {|k| k["id"] == o} %>
+			<% end %>
+		<% end %>
+		<% if this_item.has_key?("Linked Crystals") %>
+			<% this_item["Linked Crystals"].each do |o| %>
+				<% plant_magical_crystals << $db_crystals.find {|k| k["id"] == o} %>
+			<% end %>
 		<% end %>
 	<% end %>
 <% end %>
-
 <% if plant.has_key?("crystals_magical") %>
 	<% plant["crystals_magical"].each do |o| %>
 		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == o } %>
@@ -84,7 +81,9 @@
 			<% end %>
 			<img src="{{plant.image_cover[0].url}}" alt="Botanical Illustration of {{plant.name_common}}" style="max-width:100%;">
 			<br>
-			<i>{{plant.name_scientific}}</i>
+			<% if plant.has_key?("name_scientific") %>
+				<i><%= plant["name_scientific"] %></i>
+			<% end %>
 			<hr>
 			<% if plant.has_key?("Copy") %>
 				<% if plant["Copy"].length > 10 %>

@@ -145,7 +145,6 @@ body {
 #cosmosFavico {
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -webkit-optimize-contrast;
-      image-rendering: -moz-crisp-edges;
       image-rendering: -o-pixelated;
       image-rendering: pixelated;
   image-rendering: crisp-edges;
@@ -191,7 +190,7 @@ nav .logo-group {
   margin: 0 auto;
   text-align: center;
 }
-nav .logo-group img {
+nav .logo-group svg {
   width: 70%;
   margin-bottom: 0.3rem;
 }
@@ -284,12 +283,10 @@ nav::after {
   nav {
     display: none;
   }
-
   body {
     height: auto;
     overflow: visible;
   }
-
   .outer-wrap {
     height: auto;
     overflow-y: visible;

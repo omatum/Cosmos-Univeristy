@@ -32,7 +32,9 @@
 				<a href="..">&larr; Return to Magic Effects Databank Directory</a>
 				<h1>{{magic_effect.name}}</h1>
 				<ul>
-					<li>Effect Type(s): <%= magic_effect["effect_type"].join(", ") %></li>
+					<% if magic_effect.has_key?("effect_type") %>
+						<li>Effect Type(s): <%= magic_effect["effect_type"].join(", ") %></li>
+					<% end %>
 				</ul>
 				<hr>
 

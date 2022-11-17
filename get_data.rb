@@ -11,10 +11,6 @@ Airrecord.api_key = ENV['AT_API_KEY']
 class Book < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
 	self.table_name = "books"
-
-	#attr_accessor :dbl_authors
-
-	#has_many :authors, class: "Person", column: "Author"
 end
 
 class Celestial < Airrecord::Table
@@ -290,4 +286,114 @@ end
 File.open("_data/traditions.json", "w") do |f|
 	data = Tradition.all
 	f.write(data.to_json)
+end
+
+##Create search json
+
+$db_books = JSON.parse(File.read(File.expand_path("../_data/books.json",__FILE__)))
+$db_celestials = JSON.parse(File.read(File.expand_path("../_data/celestials.json",__FILE__)))
+$db_chakras = JSON.parse(File.read(File.expand_path("../_data/chakras.json",__FILE__)))
+$db_companies = JSON.parse(File.read(File.expand_path("../_data/companies.json",__FILE__)))  
+$db_crystals = JSON.parse(File.read(File.expand_path("../_data/crystals.json",__FILE__)))
+$db_crystals_magicals = JSON.parse(File.read(File.expand_path("../_data/crystals_magicals.json",__FILE__)))
+$db_cycles = JSON.parse(File.read(File.expand_path("../_data/cycles.json",__FILE__)))
+$db_cycles_rhythms = JSON.parse(File.read(File.expand_path("../_data/cycles_rhythms.json",__FILE__)))
+$db_deities = JSON.parse(File.read(File.expand_path("../_data/deities.json",__FILE__)))  
+$db_elements = JSON.parse(File.read(File.expand_path("../_data/elements.json",__FILE__)))
+$db_institutions = JSON.parse(File.read(File.expand_path("../_data/institutions.json",__FILE__)))   
+$db_magic_effects = JSON.parse(File.read(File.expand_path("../_data/magic_effects.json",__FILE__)))
+$db_magic_schools = JSON.parse(File.read(File.expand_path("../_data/magic_schools.json",__FILE__)))
+$db_numbers = JSON.parse(File.read(File.expand_path("../_data/numbers.json",__FILE__)))
+$db_people = JSON.parse(File.read(File.expand_path("../_data/people.json",__FILE__))) 
+$db_plant_magicals = JSON.parse(File.read(File.expand_path("../_data/plant_magicals.json",__FILE__)))
+$db_plants = JSON.parse(File.read(File.expand_path("../_data/plants.json",__FILE__)))
+$db_religions = JSON.parse(File.read(File.expand_path("../_data/religions.json",__FILE__))) 
+$db_rituals = JSON.parse(File.read(File.expand_path("../_data/rituals.json",__FILE__))) 
+$db_sourcebank_image_plants = JSON.parse(File.read(File.expand_path("../_data/sourcebank_image_plants.json",__FILE__)))
+$db_tarot_deck_cards = JSON.parse(File.read(File.expand_path("../_data/tarot_deck_cards.json",__FILE__)))  
+$db_tarot_decks = JSON.parse(File.read(File.expand_path("../_data/tarot_decks.json",__FILE__))) 
+$db_tarots = JSON.parse(File.read(File.expand_path("../_data/tarots.json",__FILE__))) 
+$db_traditions = JSON.parse(File.read(File.expand_path("../_data/traditions.json",__FILE__))) 
+
+search_base = []
+
+$db_books.each do |p|
+	search_base.push(
+	{
+		a: "A",
+		b: p["fields"]["title"],
+		c: p['fields']['slug'],
+		d: p['fields']['author_rollup']
+	})
+end
+
+$db_celestials.each do |p|
+	search_base.push(
+	{
+		a: "B",
+		b: p["fields"]["name"],
+		c: p['fields']['slug']
+	})
+end
+
+$db_chakras.each do |p|
+	search_base.push(
+	{
+		a: "C",
+		b: p["fields"]["name"],
+		c: p['fields']['slug'],
+		d: p["fields"]["aka"]
+	})
+end
+
+$db_crystals.each do |p|
+	search_base.push(
+	{
+		a: "D",
+		b: p["fields"]["name_common"],
+		c: p['fields']['slug'],
+		d: p["fields"]["names_aka"]
+	})
+end
+
+$db_deities.each do |p|
+	search_base.push(
+	{
+		a: "E",
+		b: p["fields"]["name_common"],
+		c: p['fields']['slug'],
+		d: p["fields"]["names_aka"]
+	})
+end
+
+$db_elements.each do |p|
+	search_base.push(
+	{
+		a: "F",
+		b: p["fields"]["name"],
+		c: p['fields']['slug']
+	})
+end
+
+$db_magic_effects.each do |p|
+	search_base.push(
+	{
+		a: "G",
+		b: p["fields"]["name"],
+		c: p['fields']['slug']
+	})
+end
+
+$db_plants.each do |p|
+	search_base.push(
+	{
+		a: "H",
+		b: p["fields"]["name_common"],
+		c: p['fields']['slug'],
+		d: "#{p['fields']['name_scientific']} | #{p['fields']['names_aka']}"
+	})
+end
+
+File.open("src/js/data/search.json", "w") do |f|
+	f.write(search_base.to_json)
 end
