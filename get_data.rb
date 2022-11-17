@@ -395,5 +395,6 @@ $db_plants.each do |p|
 end
 
 File.open("src/js/data/search.json", "w") do |f|
-	f.write(search_base.to_json)
+	tmp = "const cosmos_search_data = #{search_base.to_json}"
+	f.write(tmp)
 end

@@ -74,6 +74,7 @@
 	<div class="outer-wrap">
 		{% include _nav.html %}
 		<section class="content">
+			{% include _search.html %}
 			<a href="..">&larr; Return to Plants Databank Directory</a>
 			<h1>{{plant.name_common}}</h1>
 			<% if plant.has_key?("names_aka") %>

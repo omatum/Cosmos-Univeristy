@@ -1327,9 +1327,6 @@
 <loc>https://cosmos.university/databank/deities/freya/</loc>
 </url>
 <url>
-<loc>https://cosmos.university/databank/deities/eloquence/</loc>
-</url>
-<url>
 <loc>https://cosmos.university/databank/deities/attis/</loc>
 </url>
 <url>
@@ -1388,6 +1385,9 @@
 </url>
 <url>
 <loc>https://cosmos.university/databank/deities/kane/</loc>
+</url>
+<url>
+<loc>https://cosmos.university/databank/deities/alrauna-maiden/</loc>
 </url>
 <url>
 <loc>https://cosmos.university/databank/deities/juno/</loc>
@@ -3827,6 +3827,9 @@
 </url>
 <url>
 <loc>https://cosmos.university/databank/magic-effects/amplifies-femininity/</loc>
+</url>
+<url>
+<loc>https://cosmos.university/databank/magic-effects/amplifies-curses/</loc>
 </url>
 <url>
 <loc>https://cosmos.university/databank/magic-effects/anti-fungal/</loc>

@@ -113,6 +113,127 @@
   </div>
 </nav>
       <section class="content">
+        <style type="text/css">
+	#cosmos-search-wrapper{width: 100%;margin-bottom: 2rem;}
+
+	#input_cosmos-search-wrapper{width: 100%;}
+	#input_cosmos-search{width: 100%;height: 3rem;text-indent: 2rem;font-size: 1rem;}
+	#input_cosmos-search-results{width: 100%;position: relative}
+	#input_cosmos-search-results .item_search-result
+	{
+		background-color: rgb(240,240,240);margin: 2px;cursor: pointer;transition: .2s all ease-in-out; border: 1px solid rgb(220,220,220); display: flex; text-decoration: none; color: black;padding: 1rem;
+	}
+	#input_cosmos-search-results .item_search-result:hover{background-color: white;font-size: 1rem;}
+
+	#input_cosmos-search-results .item_search-result .databank{flex: 0 1 30%;text-align: center;align-self: center;text-transform: uppercase;letter-spacing: .2rem;}
+	#input_cosmos-search-results .item_search-result .result-wrap{flex: 1 1 70%;}
+	#input_cosmos-search-results .item_search-result .search-title{font-weight: bold;font-size: 1.2rem;}
+	#input_cosmos-search-results .item_search-result .search-addtl{font-style: italic;font-size: 1rem;font-weight: 300}
+</style>
+
+<div id="cosmos-search-wrapper" class="wht-md">
+	<div id="input_cosmos-search-wrapper">
+		<input id="input_cosmos-search" type="search" autocomplete="off" placeholder="search the databanks (press / to search)" >
+	</div>
+	<div id="input_cosmos-search-results"></div>
+</div>
+<script type="text/javascript" src="/src/js/data/search.json"></script>
+<script>
+	document.addEventListener('DOMContentLoaded',function(){site_search()});
+	document.addEventListener('keyup',(ev)=>
+	{
+		if (ev.key=='/')
+		{
+			document.querySelector('#input_cosmos-search').focus();
+		}
+	})
+
+	function site_search()
+	{
+		//TODO: Add capture for down / up keys to select an item and ENTER to go to that page
+		var $search = document.querySelector('#input_cosmos-search')
+
+		$search.addEventListener('search',(ev)=>
+		{
+			if(ev.target.value.length==0)
+			{
+				return document.querySelector('#input_cosmos-search-results').textContent=""
+			}
+		})
+
+		//Attach keyup bindings to run primary search function
+		$search.addEventListener('keyup',(ev)=>
+		{
+			var text = ev.target.value;
+
+			text = text.trim().toLowerCase();
+
+			if(text.length < 2)
+			{
+				return document.querySelector('#input_cosmos-search-results').textContent=""
+			}
+
+			var search_results = cosmos_search_data.filter(function(sr)
+			{
+				var r_txt = sr.b
+				if("d" in sr){r_txt+=` ${sr.d}`}
+				r_txt = r_txt.toLowerCase()
+				return r_txt.indexOf(text) > -1
+			})
+
+			if(search_results.length == 0)
+			{
+				document.querySelector('#input_cosmos-search-results').textContent=""
+				return
+			}
+
+			//Lookup Arrays
+			var lookup = 
+			{
+				A: {name:"Book",url:"/databank/books/"},
+				B: {name:"Celestial",url:"/databank/celestials/"},
+				C: {name:"Chakra",url:"/databank/chakras/"},
+				D: {name:"Crystal",url:"/databank/crystals/"},
+				E: {name:"Deity",url:"/databank/deities/"},
+				F: {name:"Elements",url:"/databank/elements/"},
+				G: {name:"Magical Effect",url:"/databank/magic_effects/"},
+				H: {name:"Plant",url:"/databank/plants/"}
+			}
+
+			var search_result_html = ""
+
+			search_results.forEach(function(item)
+			{
+				var item_data = 
+				{
+					databank: `${lookup[item.a].name}`,
+					url: `${lookup[item.a].url}${item.c}`,
+					title: item.b,
+					addtl:''
+				}
+
+				if("d" in item)
+				{
+					console.log(item)
+					if(item.d!=null)
+					{
+						item_data.addtl = `<div class="search-addtl">${item.d}</div>`
+					}
+				}
+
+				search_result_html += `<a href="${item_data.url}" class="item_search-result">
+									<div class="databank">${item_data.databank}</div>
+									<div class="result-wrap">
+										<div class="search-title">${item_data.title}</div>
+										${item_data.addtl}
+									</div>
+								</a>`;
+			})
+
+			document.querySelector('#input_cosmos-search-results').innerHTML = search_result_html
+		})
+	}
+</script>
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Magic Effects Databank</h1>
         <hr>
@@ -351,7 +472,7 @@
           
           <li>
             <a href="amplifies-clairvoyance/">Amplifies Clairvoyance</a><br>
-            <span>(10 Linked Items)</span>
+            <span>(11 Linked Items)</span>
           </li>
           
           <li>
@@ -387,6 +508,11 @@
           <li>
             <a href="amplifies-creativity/">Amplifies Creativity</a><br>
             <span>(29 Linked Items)</span>
+          </li>
+          
+          <li>
+            <a href="amplifies-curses/">Amplifies Curses</a><br>
+            <span>(1 Linked Items)</span>
           </li>
           
           <li>
@@ -581,7 +707,7 @@
           
           <li>
             <a href="amplifies-love-spells/">Amplifies Love Spells</a><br>
-            <span>(7 Linked Items)</span>
+            <span>(8 Linked Items)</span>
           </li>
           
           <li>
@@ -951,7 +1077,7 @@
           
           <li>
             <a href="aphrodisiac/">Aphrodisiac</a><br>
-            <span>(11 Linked Items)</span>
+            <span>(12 Linked Items)</span>
           </li>
           
           <li>
@@ -1286,7 +1412,7 @@
           
           <li>
             <a href="divination/">Divination</a><br>
-            <span>(65 Linked Items)</span>
+            <span>(66 Linked Items)</span>
           </li>
           
           <li>
@@ -1536,7 +1662,7 @@
           
           <li>
             <a href="helps-with-becoming-invisible/">Helps With Becoming Invisible</a><br>
-            <span>(9 Linked Items)</span>
+            <span>(10 Linked Items)</span>
           </li>
           
           <li>
@@ -1651,7 +1777,7 @@
           
           <li>
             <a href="helps-with-flying/">Helps With Flying</a><br>
-            <span>(3 Linked Items)</span>
+            <span>(4 Linked Items)</span>
           </li>
           
           <li>
@@ -2066,7 +2192,7 @@
           
           <li>
             <a href="manifests-fertility/">Manifests Fertility</a><br>
-            <span>(55 Linked Items)</span>
+            <span>(56 Linked Items)</span>
           </li>
           
           <li>
@@ -2136,7 +2262,7 @@
           
           <li>
             <a href="manifests-luck/">Manifests Luck</a><br>
-            <span>(129 Linked Items)</span>
+            <span>(130 Linked Items)</span>
           </li>
           
           <li>
@@ -2151,7 +2277,7 @@
           
           <li>
             <a href="manifests-money/">Manifests Money</a><br>
-            <span>(121 Linked Items)</span>
+            <span>(122 Linked Items)</span>
           </li>
           
           <li>
@@ -3061,7 +3187,7 @@
           
           <li>
             <a href="treasure-finding/">Treasure Finding</a><br>
-            <span>(2 Linked Items)</span>
+            <span>(3 Linked Items)</span>
           </li>
           
           <li>
@@ -3591,7 +3717,7 @@
 	
 	<br>
 	<br>
-	<code>Data for Cosmos University was generated from 171 sources and maps 4288 data records.</code>
+	<code>Data for Cosmos University was generated from 171 sources and maps 4289 data records.</code>
 	<br>
 	<br>
 	<a href="/">Return to Homepage</a>
