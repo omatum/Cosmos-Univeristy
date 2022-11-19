@@ -24,12 +24,51 @@ $db_tarot_decks = JSON.parse(File.read(File.expand_path("../../_data/tarot_decks
 $db_tarots = JSON.parse(File.read(File.expand_path("../../_data/tarots.json",__FILE__))) 
 $db_traditions = JSON.parse(File.read(File.expand_path("../../_data/traditions.json",__FILE__))) 
 
+$site_json = []
+
+$site_json << $db_books
+$site_json << $db_celestials
+$site_json << $db_chakras
+$site_json << $db_companies
+$site_json << $db_crystals
+$site_json << $db_crystals_magicals
+$site_json << $db_cycles
+$site_json << $db_cycles_rhythms
+$site_json << $db_deities
+$site_json << $db_elements
+$site_json << $db_institutions
+$site_json << $db_magic_effects
+$site_json << $db_magic_schools
+$site_json << $db_numbers
+$site_json << $db_people
+$site_json << $db_plant_magicals
+$site_json << $db_plants
+$site_json << $db_religions
+$site_json << $db_rituals
+$site_json << $db_sourcebank_image_plants
+$site_json << $db_tarot_deck_cards
+$site_json << $db_tarot_decks
+$site_json << $db_tarots
+$site_json << $db_traditions
+
+$total_sources = $db_books.count
+$total_datarecords = 0
+$total_datapoints = 0
+
+$site_json.each do |h|
+  h.each do |i|
+    $total_datarecords += 1
+    $total_datapoints += i["fields"].count
+    i.each do |b|
+      if b.kind_of?(Array)
+        $total_datapoints += b.count
+      end
+    end
+  end
+end
 
 
-$source_count = $db_books.count
-
-$total_datapoints = $db_books.count + $db_celestials.count + $db_chakras.count + $db_companies.count + $db_crystals.count + $db_crystals_magicals.count + $db_cycles.count + $db_cycles_rhythms.count + $db_deities.count + $db_elements.count + $db_institutions.count + $db_magic_effects.count + $db_magic_schools.count + $db_numbers.count + $db_people.count + $db_plant_magicals.count + $db_plants.count + $db_religions.count + $db_rituals.count + $db_rituals.count + $db_sourcebank_image_plants.count + $db_tarot_deck_cards.count + $db_tarot_decks.count + $db_tarots.count + $db_traditions.count
-
+puts "Sources: #{$total_sources} || Records: #{$total_datarecords}|| Datapoints: #{$total_datapoints}"
 
 $nav_databanks = {
   live:
