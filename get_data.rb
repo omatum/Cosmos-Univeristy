@@ -53,6 +53,11 @@ class Deity < Airrecord::Table
 	self.table_name = "deities"
 end
 
+class DeitiesFamily < Airrecord::Table
+	self.base_key = ENV['AT_BASE_CUDB_ID']
+	self.table_name = "deities-family"
+end
+
 class Element < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
 	self.table_name = "elements"
@@ -195,6 +200,11 @@ end
 
 File.open("_data/deities.json", "w") do |f|
 	data = Deity.all
+	f.write(data.to_json)
+end
+
+File.open("_data/deities_family.json", "w") do |f|
+	data = DeitiesFamily.all
 	f.write(data.to_json)
 end
 

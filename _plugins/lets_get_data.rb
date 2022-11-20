@@ -7,7 +7,8 @@ $db_crystals = JSON.parse(File.read(File.expand_path("../../_data/crystals.json"
 $db_crystals_magicals = JSON.parse(File.read(File.expand_path("../../_data/crystals_magicals.json",__FILE__)))
 $db_cycles = JSON.parse(File.read(File.expand_path("../../_data/cycles.json",__FILE__)))
 $db_cycles_rhythms = JSON.parse(File.read(File.expand_path("../../_data/cycles_rhythms.json",__FILE__)))
-$db_deities = JSON.parse(File.read(File.expand_path("../../_data/deities.json",__FILE__)))  
+$db_deities = JSON.parse(File.read(File.expand_path("../../_data/deities.json",__FILE__)))
+$db_deities_family = JSON.parse(File.read(File.expand_path("../../_data/deities_family.json",__FILE__)))
 $db_elements = JSON.parse(File.read(File.expand_path("../../_data/elements.json",__FILE__)))
 $db_institutions = JSON.parse(File.read(File.expand_path("../../_data/institutions.json",__FILE__)))   
 $db_magic_effects = JSON.parse(File.read(File.expand_path("../../_data/magic_effects.json",__FILE__)))
@@ -35,6 +36,7 @@ $site_json << $db_crystals_magicals
 $site_json << $db_cycles
 $site_json << $db_cycles_rhythms
 $site_json << $db_deities
+$site_json << $db_deities_family
 $site_json << $db_elements
 $site_json << $db_institutions
 $site_json << $db_magic_effects
@@ -68,7 +70,7 @@ $site_json.each do |h|
 end
 
 
-puts "Sources: #{$total_sources} || Records: #{$total_datarecords}|| Datapoints: #{$total_datapoints}"
+puts "Sources: #{$total_sources} || Records: #{$total_datarecords} || Datapoints: #{$total_datapoints}"
 
 $nav_databanks = {
   live:
