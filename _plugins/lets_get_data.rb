@@ -130,7 +130,8 @@ $nav_databanks = {
     [
       {
         title: "Homepage",
-        url:"/"
+        dir_url:"/",
+        for: "homepage"
       }
     ]
   },

@@ -1,6 +1,6 @@
 nav
 {
-  &{position:relative;background-color:black;min-height:100vh;color:white; flex: 0 0 16%;padding-top:1.5rem;}
+  &{position:relative;background-color:black;min-height:100vh;color:white; flex: 0 0 16%;padding-top:1.5rem;z-index:100;}
   .nav-wrap{position:relative;width:100%;height:100%;overflow-x:hidden;}
   .logo-group
   {
@@ -24,6 +24,11 @@ nav
     li a:hover{font-weight:700;}
     li.current{font-weight:500;}
     li.current::after{content:"";display:block;width:100px;height:1px;border-bottom:2px dotted white;position:absolute;right:-115px;top:calc(50% - 1px);}
+  }
+
+  .links-group ul#nav_sections
+  {
+    li.current::after{right:auto;left:-115px}
   }
 }
 

@@ -178,6 +178,7 @@ nav {
       -ms-flex: 0 0 16%;
           flex: 0 0 16%;
   padding-top: 1.5rem;
+  z-index: 100;
 }
 nav .nav-wrap {
   position: relative;
@@ -266,6 +267,10 @@ nav .links-group li.current::after {
   position: absolute;
   right: -115px;
   top: calc(50% - 1px);
+}
+nav .links-group ul#nav_sections li.current::after {
+  right: auto;
+  left: -115px;
 }
 
 nav::after {
