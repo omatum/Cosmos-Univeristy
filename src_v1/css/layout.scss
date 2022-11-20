@@ -54,3 +54,13 @@ body
   section#form{width:100%;max-width:none;padding-top:3rem;padding-bottom:3rem;}
 
 }
+
+@media screen and (max-device-width: 480px) and (orientation: portrait)
+{
+  body {
+      height: auto;
+      overflow: visible;
+      section section{padding:1rem;}
+      section#form{padding:2rem;width:auto;}
+  }
+}
