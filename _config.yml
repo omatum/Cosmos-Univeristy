@@ -10,8 +10,8 @@ twitter_username:
 github_username:   
 
 # Build settings
-plugins:
-  - jekyll-sitemap
+#plugins:
+  #- jekyll-sitemap
 
 
 #This is our page generator for all data content - it scours the data files to produce these pages
