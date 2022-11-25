@@ -1,6 +1,14 @@
-@media screen and (max-device-width: 480px)
-and (orientation: portrait) {
-  nav{display:none;}
-  body{height:auto;overflow:visible;}
+@media screen and (max-width: 780px){
   .outer-wrap{height:auto;overflow-y:visible;display:block;}
+
+  body {
+    &{height:auto;overflow:visible;}
+      section section{padding:2rem;}
+      section#form{padding:2rem !important;width:auto !important;}
+  }
+}
+
+@media screen and (min-width:781px) and (max-width:1280px)
+{
+  body section section{max-width:600px !important;}
 }

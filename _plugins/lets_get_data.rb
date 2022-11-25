@@ -13,6 +13,8 @@ $db_elements = JSON.parse(File.read(File.expand_path("../../_data/elements.json"
 $db_institutions = JSON.parse(File.read(File.expand_path("../../_data/institutions.json",__FILE__)))   
 $db_magic_effects = JSON.parse(File.read(File.expand_path("../../_data/magic_effects.json",__FILE__)))
 $db_magic_schools = JSON.parse(File.read(File.expand_path("../../_data/magic_schools.json",__FILE__)))
+$db_materia = JSON.parse(File.read(File.expand_path("../../_data/materia.json",__FILE__)))
+$db_materia_products = JSON.parse(File.read(File.expand_path("../../_data/materia_products.json",__FILE__)))
 $db_numbers = JSON.parse(File.read(File.expand_path("../../_data/numbers.json",__FILE__)))
 $db_people = JSON.parse(File.read(File.expand_path("../../_data/people.json",__FILE__))) 
 $db_plant_magicals = JSON.parse(File.read(File.expand_path("../../_data/plant_magicals.json",__FILE__)))
@@ -41,6 +43,8 @@ $site_json << $db_elements
 $site_json << $db_institutions
 $site_json << $db_magic_effects
 $site_json << $db_magic_schools
+$site_json << $db_materia
+$site_json << $db_materia_products
 $site_json << $db_numbers
 $site_json << $db_people
 $site_json << $db_plant_magicals

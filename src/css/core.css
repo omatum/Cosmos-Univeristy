@@ -179,6 +179,11 @@ nav {
           flex: 0 0 16%;
   padding-top: 1.5rem;
   z-index: 100;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+nav #nav-openclose {
+  display: none;
 }
 nav .nav-wrap {
   position: relative;
@@ -247,6 +252,9 @@ nav .links-group ul {
 nav .links-group li {
   margin-bottom: 0.3rem;
   position: relative;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  color: rgb(240, 240, 240);
 }
 nav .links-group li a {
   color: white;
@@ -254,9 +262,11 @@ nav .links-group li a {
 }
 nav .links-group li a:hover {
   font-weight: 700;
+  color: white;
 }
 nav .links-group li.current {
   font-weight: 500;
+  color: white;
 }
 nav .links-group li.current::after {
   content: "";
@@ -284,17 +294,127 @@ nav::after {
   background-color: black;
 }
 
-@media screen and (max-device-width: 480px) and (orientation: portrait) {
-  nav {
+@media screen and (max-width: 780px) {
+  body nav {
+    min-height: auto;
+    padding-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  body nav .logo-group {
+    width: 96%;
+    -webkit-transition: 0.5s all ease-out;
+    transition: 0.5s all ease-out;
+  }
+  body nav .logo-group svg {
+    width: 50%;
+    margin-bottom: 0.5rem;
+  }
+  body nav .logo-group .tagline {
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 3.5rem;
+  }
+  body nav .links-group {
+    width: 75%;
+  }
+  body nav .links-group .list-title {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  body nav .links-group ul {
+    font-size: 1rem;
+  }
+  body nav .links-group li {
+    margin-bottom: 2.5rem;
+  }
+  body nav #nav-openclose {
+    -webkit-transition: 0.2s all ease-out;
+    transition: 0.2s all ease-out;
+    z-index: 100;
+    border-radius: 20%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 32px;
+  }
+  body nav #nav-openclose .bar {
+    -webkit-transition: 0.5s all ease-in-out;
+    transition: 0.5s all ease-in-out;
+    width: 100%;
+    height: 2px;
+    background: rgb(160, 160, 160);
+  }
+  body nav.closed {
+    padding-bottom: 0px;
+  }
+  body nav.closed .logo-group {
+    overflow: hidden;
+    width: 100%;
+  }
+  body nav.closed .logo-group svg {
+    margin-bottom: 1rem;
+  }
+  body nav.closed .tagline {
     display: none;
+  }
+  body nav.closed .bar-rainbow {
+    margin-bottom: -3px;
+    height: 6px;
+  }
+  body nav.closed .links-group {
+    display: none;
+  }
+  body nav.closed #nav-openclose {
+    height: 22px;
+    border-radius: 13%;
+  }
+  body nav.closed #nav-openclose .bar {
+    background: -webkit-gradient(linear, left top, right top, from(rgb(249, 72, 114)), color-stop(20%, rgb(255, 157, 51)), color-stop(40%, rgb(255, 219, 69)), color-stop(60%, rgb(152, 219, 22)), color-stop(80%, rgb(94, 210, 229)), to(rgb(156, 140, 234)));
+    background: linear-gradient(90deg, rgb(249, 72, 114) 0%, rgb(255, 157, 51) 20%, rgb(255, 219, 69) 40%, rgb(152, 219, 22) 60%, rgb(94, 210, 229) 80%, rgb(156, 140, 234) 100%);
+  }
+  body .outer-wrap {
+    display: block;
+    height: auto;
   }
   body {
     height: auto;
     overflow: visible;
   }
+}
+@media screen and (max-width: 780px) {
   .outer-wrap {
     height: auto;
     overflow-y: visible;
     display: block;
+  }
+  body {
+    height: auto;
+    overflow: visible;
+  }
+  body section section {
+    padding: 2rem;
+  }
+  body section#form {
+    padding: 2rem !important;
+    width: auto !important;
+  }
+}
+@media screen and (min-width: 781px) and (max-width: 1280px) {
+  body section section {
+    max-width: 600px !important;
   }
 }

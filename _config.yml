@@ -80,6 +80,7 @@ exclude:
    - vendor/gems/
    - vendor/ruby/
    - get_data.rb
+   - get_counts.rb
    - prepros.config
    - "*.scss"
    - src/js/builds/

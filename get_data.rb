@@ -78,6 +78,16 @@ class MagicSchools < Airrecord::Table
 	self.table_name = "magic-schools"
 end
 
+class Materia < Airrecord::Table
+	self.base_key = ENV['AT_BASE_CUDB_ID']
+	self.table_name = "materia"
+end
+
+class MateriaProducts < Airrecord::Table
+	self.base_key = ENV['AT_BASE_CUDB_ID']
+	self.table_name = "materia-products"
+end
+
 class Number < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
 	self.table_name = "numbers"
@@ -86,10 +96,6 @@ end
 class Plant < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
 	self.table_name = "plants"
-
-	#attr_accessor :dbl_plants_magicals
-
-	#has_many :plants_magicals, class: "PlantMagical", column: "plants_magical"
 end
 
 class PlantMagical < Airrecord::Table
@@ -228,6 +234,16 @@ File.open("_data/magic_schools.json", "w") do |f|
 	f.write(data.to_json)
 end
 
+File.open("_data/materia.json", "w") do |f|
+	data = Materia.all
+	f.write(data.to_json)
+end
+
+File.open("_data/materia_products.json", "w") do |f|
+	data = MateriaProducts.all
+	f.write(data.to_json)
+end
+
 File.open("_data/numbers.json", "w") do |f|
 	data = Number.all
 	f.write(data.to_json)
@@ -240,19 +256,6 @@ end
 
 File.open("_data/plants.json", "w") do |f|
 	data = Plant.all
-
-	#This is SLOW
-	#data.map do |d|
-	#	d.dbl_plants_magicals = d.plants_magicals.to_a
-	#end
-
-	#data.map do |d|
-	#	d.plants_magicals.map do |b|
-	#		d.dbl_plants_magicals = PlantMagical.find(b.id).to_a
-	#	end
-	#end
-
-
 	f.write(data.to_json)
 end
 
@@ -313,6 +316,8 @@ $db_elements = JSON.parse(File.read(File.expand_path("../_data/elements.json",__
 $db_institutions = JSON.parse(File.read(File.expand_path("../_data/institutions.json",__FILE__)))   
 $db_magic_effects = JSON.parse(File.read(File.expand_path("../_data/magic_effects.json",__FILE__)))
 $db_magic_schools = JSON.parse(File.read(File.expand_path("../_data/magic_schools.json",__FILE__)))
+$db_materia = JSON.parse(File.read(File.expand_path("../_data/materia.json",__FILE__)))
+$db_materia_products = JSON.parse(File.read(File.expand_path("../_data/materia_products.json",__FILE__)))
 $db_numbers = JSON.parse(File.read(File.expand_path("../_data/numbers.json",__FILE__)))
 $db_people = JSON.parse(File.read(File.expand_path("../_data/people.json",__FILE__))) 
 $db_plant_magicals = JSON.parse(File.read(File.expand_path("../_data/plant_magicals.json",__FILE__)))

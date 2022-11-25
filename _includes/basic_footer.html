@@ -74,4 +74,16 @@
 
 	  fco.href = canvas.toDataURL('image/png')
 	}
+
+
+	
+
+	var nav_toggle = document.getElementById('nav-openclose')
+
+	nav_toggle.addEventListener("click",function()
+	{
+		var nav_tar = document.querySelector('nav')
+
+		nav_tar.classList.toggle('closed')
+	})
 </script>
