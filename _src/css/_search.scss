@@ -1,0 +1,15 @@
+	#cosmos-search-wrapper{width: 100%;margin-bottom: 2rem;}
+
+	#input_cosmos-search-wrapper{width: 100%;}
+	#input_cosmos-search{width: 100%;height: 3rem;text-indent: 2rem;font-size: 1rem;}
+	#input_cosmos-search-results{width: 100%;position: relative}
+	#input_cosmos-search-results .item_search-result
+	{
+		background-color: rgb(240,240,240);margin: 2px;cursor: pointer;transition: .2s all ease-in-out; border: 1px solid rgb(220,220,220); display: flex; text-decoration: none; color: black;padding: 1rem;
+	}
+	#input_cosmos-search-results .item_search-result:hover{background-color: white;font-size: 1rem;}
+
+	#input_cosmos-search-results .item_search-result .databank{flex: 0 1 30%;text-align: center;align-self: center;text-transform: uppercase;letter-spacing: .2rem;}
+	#input_cosmos-search-results .item_search-result .result-wrap{flex: 1 1 70%;}
+	#input_cosmos-search-results .item_search-result .search-title{font-weight: bold;font-size: 1.2rem;}
+	#input_cosmos-search-results .item_search-result .search-addtl{font-style: italic;font-size: 1rem;font-weight: 300}

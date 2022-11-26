@@ -85,3 +85,6 @@ exclude:
    - "*.scss"
    - src/js/builds/
    - _src/
+   - package.json
+   - package-lock.json
+   - gulpfile.js

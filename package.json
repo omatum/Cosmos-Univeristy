@@ -1,0 +1,30 @@
+{
+  "name": "cosmos-univeristy",
+  "version": "1.0.0",
+  "description": "Using this for Gulp",
+  "main": "index.js",
+  "scripts": {
+    "minify": "gulp check-size minify-css minify-js minify-html check-size",
+    "minify-css": "gulp minify-css",
+    "minify-js": "gulp minify-js",
+    "minify-html": "gulp minify-html",
+    "check-size": "gulp check-size"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omatum/Cosmos-Univeristy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omatum/Cosmos-Univeristy/issues"
+  },
+  "homepage": "https://github.com/omatum/Cosmos-Univeristy#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-size": "^4.0.1",
+    "gulp-uglify": "^3.0.2"
+  }
+}
