@@ -19,6 +19,63 @@
 	<% end %>
 <% end %>
 
+<% deity_parents = [] %>
+<% deity_offspring = [] %>
+<% deity_siblings = [] %>
+<% deity_twins = [] %>
+
+
+<% if deity.has_key?("deities_family") %>
+	<% deity["deities_family"].each do |p| %>
+		<% tmpa = $db_deities_family.find{|k| k["id"] == p} %>
+		<% if tmpa["fields"]["relationship"] == "parents" %>
+			<% tmpa["fields"]["id_deities_related_to"].each do |j| %>
+				<% deity_parents << $db_deities.find {|k| k["id"] == j } %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "twin" %>
+			<% tmpa["fields"]["id_deities_related_to"].each do |j| %>
+				<% deity_twins << $db_deities.find {|k| k["id"] == j } %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "sibling" %>
+			<% tmpa["fields"]["id_deities_related_to"].each do |j| %>
+				<% deity_siblings << $db_deities.find {|k| k["id"] == j } %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "children" %>
+			<% tmpa["fields"]["id_deities_related_to"].each do |j| %>
+				<% deity_offspring << $db_deities.find {|k| k["id"] == j } %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
+
+<% if deity.has_key?("family_of_deities") %>
+	<% deity["family_of_deities"].each do |p| %>
+		<% tmpa = $db_deities_family.find{|k| k["id"] == p} %>
+		<% if tmpa["fields"]["relationship"] == "children" %>
+			<% deity_parents << $db_deities.find {|k| k["id"] == tmpa["fields"]["id_deity"][0] } %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "twin" %>
+			<% deity_twins << $db_deities.find {|k| k["id"] == tmpa["fields"]["id_deity"][0] } %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "sibling" %>
+			<% deity_siblings << $db_deities.find {|k| k["id"] == tmpa["fields"]["id_deity"][0] } %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "parents" %>
+			<% deity_offspring << $db_deities.find {|k| k["id"] == tmpa["fields"]["id_deity"][0] } %>
+		<% end %>
+	<% end %>
+<% end %>
+
+
+
+<% deity_parents.uniq! %>
+<% deity_offspring.uniq! %>
+<% deity_siblings.uniq! %>
+<% deity_twins.uniq! %>
+
 
 <!DOCTYPE html>
 <html>
@@ -76,6 +133,54 @@
 						<% end %>		
 					</li>
 				<% end %>
+				</ul>
+			<% end %>
+
+			<% if deity_parents.count > 0 %>
+				<h3>Progenitors of <%= deity["name_common"] %></h3>
+				<ul>
+				<% deity_parents.sort_by! {|k|k["fields"]["name_common"]} %>
+				<% deity_parents.each do |p| %>
+				<li>
+					<%= "<a href='/databank/deities/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
+				</li>
+				<% end %>
+				</ul>
+			<% end %>
+
+			<% if deity_siblings.count > 0 %>
+				<h3>Siblings of <%= deity["name_common"] %></h3>
+				<ul>
+				<% deity_siblings.sort_by! {|k|k["fields"]["name_common"]} %>
+				<% deity_siblings.each do |p| %>
+				<li>
+					<%= "<a href='/databank/deities/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
+				</li>
+				<% end %>
+				</ul>
+			<% end %>
+
+			<% if deity_twins.count > 0 %>
+				<h3>Twins of <%= deity["name_common"] %></h3>
+				<ul>
+				<% deity_twins.sort_by! {|k|k["fields"]["name_common"]} %>
+				<% deity_twins.each do |p| %>
+				<li>
+					<%= "<a href='/databank/deities/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
+				</li>
+				<% end %>
+				</ul>
+			<% end %>
+
+			<% if deity_offspring.count > 0 %>
+				<h3>Offspring of <%= deity["name_common"] %></h3>
+				<ul>
+				<% deity_offspring.sort_by! {|k|k["fields"]["name_common"]} %>
+				<% deity_offspring.each do |p| %>
+				<li>
+					<%= "<a href='/databank/deities/#{p['fields']['slug']}/'>#{p['fields']['name_common']}</a>" %>
+				</li>
+					<% end %>
 				</ul>
 			<% end %>
 
