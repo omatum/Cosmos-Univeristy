@@ -24,7 +24,7 @@
 <html>
 <head>
 	{% include basic_head.html %}
-	<title>{{deity.name_common}}: Spiritual and Historical Data</title>	
+	<title>{{deity.name_common}}: Metaphysical and Historical Data</title>	
 </head>
 <body>
 	<div class="outer-wrap">
@@ -33,6 +33,18 @@
 			{% include _search.html %}
 			<a href="..">&larr; Return to Deities Databank Directory</a>
 			<h1>{{deity.name_common}}</h1>
+			<ul>
+				<% if deity.has_key?("id_religion") %>
+					<li><b>Associated Religions, Traditions, and Pantheons</b>
+						<ul>
+							<% deity["id_religion"].each do |i| %>
+							<% tmpa = $db_religions.find{|k| k["id"] == i } %>
+							<li><%= tmpa['fields']['name'] %></li>
+							<% end %>
+						</ul>
+					</li>
+				<% end %>
+			</ul>
 			<hr>
 
 			<% if deity_plants.count > 0 %>
