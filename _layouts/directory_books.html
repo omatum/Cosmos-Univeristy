@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
+    <meta name="description" content="The Books Databank contains data on <%= "#{$db_books.count.humanize}" %> books and their associated entries for metaphysical definitions, properties, and objects.">
     <title>Cosmos University: Books Databank</title>
   </head>
   <body>
@@ -12,8 +13,13 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Books Databank</h1>
+        <p>This Databank contains entries on <%= "#{$db_books.count.humanize}" %> books that we have utilized to build the datasets which help to inform Cosmos University's Databanks and data models. As we complete the extraction, transmutation, and loading of this data into more usable pieces we update the records contained here.</p>
+        <p><i>If you're interested in helping:</i> We're currently seeking more books that have deep amounts of data contained within them and individuals who would find joy in the process of modeling and extracting data from these books.</p>
+        <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.title" %}
+        <br>
+        <h2>Book List</h2>
         <ul>
           {% for item in directory_alpha %}
           <li>
@@ -28,6 +34,5 @@
         {% include basic_footer.html %}
       </section>
     </div>
-    
   </body>
 </html>

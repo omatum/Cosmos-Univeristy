@@ -21,17 +21,6 @@
 				<% end %>
 			</ul>
 			<hr>
-			<% if book.has_key?("Copy") %>
-				<% if book["Copy"].length > 10 %>
-					<%= book["Copy"] %>
-				<% else %>
-					{% include frag_helpneeded.html %}
-				<% end %>
-			<% else %>
-				{% include frag_helpneeded.html %} 
-			<% end %>
-			<hr>
-
 			<% if book["Data References"] > 0 %>
 				<h3>Referenced Data</h3>
 				<ul>

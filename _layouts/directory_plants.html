@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
+    <meta name="description" content="The Plants Databank contains data on <%= "#{$db_plants.count.humanize}" %> plants and their scientific, magical, ritualistic, and metaphysical properties.">
     <title>Cosmos University: Plants Databank</title>
   </head>
   <body data-directory="plants">
@@ -12,8 +13,13 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Plants Databank</h1>
+        <p>This Databank contains entries on <%= $db_plants.count.humanize %> plants and lists their scientific, magical, ritualistic, and metaphysical propetries. This information is currently being gathered and updated as we accumulate it. This directory is scheduled to receive a major interface update shortly.</p>
+        <p><i>If you're interested in helping:</i> We are always on the lookout for incorrect information within this databank, often times plant names aren't correctly described in source materials and as a result we create duplicate entries on accident. Additionally we're facing a large backlog of scientific data that must be processed into these records.</p>
+        <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name_common" %}
+        <br>
+        <h2>Plant List</h2>
         <ul>
           {% for item in directory_alpha %}
           <li>
@@ -26,7 +32,5 @@
         {% include basic_footer.html %}
       </section>
     </div>
-
-    
   </body>
 </html>

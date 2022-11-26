@@ -1,3 +1,7 @@
+#Anything done in this file is site-wide exposure. Use to add utilities, if it starts getting huge we'll bust it up.
+
+#Convert 1 to one (1.humanize => 'one')
+require 'humanize'
 
 $db_books = JSON.parse(File.read(File.expand_path("../../_data/books.json",__FILE__)))
 $db_celestials = JSON.parse(File.read(File.expand_path("../../_data/celestials.json",__FILE__)))

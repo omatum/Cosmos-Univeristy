@@ -70,16 +70,7 @@
 					<% end %>
 					</ul>
 				<% end %>
-				<hr>
-				<% if magic_effect.has_key?("Copy") %>
-					<% if magic_effect["Copy"].length > 10 %>
-						<%= magic_effect["Copy"] %>
-					<% else %>
-						{% include frag_helpneeded.html %}
-					<% end %>
-				<% else %>
-					{% include frag_helpneeded.html %} 
-				<% end %>
+				<br>
 				
 				{% include basic_footer.html %}
 		</section>

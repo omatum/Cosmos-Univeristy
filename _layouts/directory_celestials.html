@@ -3,7 +3,8 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
-    <title>Cosmos University: Celestial Databank</title>
+    <meta name="description" content="The Celestials Databank contains data on <%= "#{$db_celestials.count.humanize}" %> celestial and orbital bodies and their associations to other metaphysical properties and objects.">
+    <title>Cosmos University: Celestials Databank</title>
   </head>
   <body>
     <div class="outer-wrap">
@@ -12,8 +13,13 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Celestials Databank</h1>
+        <p>This Databank contains entries on <%= "#{$db_celestials.count.humanize}" %> celestial bodies, and will be expanded to contain many more entries. This directory is typically generated from secondary associations contained within our source materials.</p>
+        <p><i>If you're interested in helping:</i> We're currently seeking more data on associations between these entries and other entries elsewhere in our databanks.</p>
+        <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}
+        <br>
+        <h2>Celestial List</h2>
         <ul>
           {% for item in directory_alpha %}
           <li>

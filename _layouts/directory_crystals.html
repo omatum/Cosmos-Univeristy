@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
+    <meta name="description" content="The Crystals Databank contains data on <%= "#{$db_crystals.count.humanize}" %> crystals and their scientific, magical, ritualistic, and metaphysical properties.">
     <title>Cosmos University: Crystals Databank</title>
   </head>
   <body>
@@ -12,8 +13,13 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Crystals Databank</h1>
+        <p>This Databank contains entries on <%= $db_crystals.count.humanize %> crystals and lists their scientific, magical, ritualistic, and metaphysical propetries. This information is currently being gathered and updated as we accumulate it.</p>
+        <p><i>If you're interested in helping:</i> We're facing a large backlog of scientific data that must be processed into these records. We are seeking additional sources on magical / spritual information.</p>
+        <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name_common" %}
+        <br>
+        <h2>Crystal List</h2>
         <ul>
           {% for item in directory_alpha %}
           <li>

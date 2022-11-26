@@ -49,16 +49,6 @@
 				<% end %>
 			</ul>
 			<hr>
-			<% if celestial.has_key?("Copy") %>
-				<% if celestial["Copy"].length > 10 %>
-					<%= celestial["Copy"] %>
-				<% else %>
-					{% include frag_helpneeded.html %}
-				<% end %>
-			<% else %>
-				{% include frag_helpneeded.html %} 
-			<% end %>
-			<hr>
 
 			<% if celestial_plants.count > 0 %>
 				<h3>Associated Plants</h3>

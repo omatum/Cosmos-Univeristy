@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
+    <meta name="description" content="The Cosmos University Databanks contains information on <%= $total_datapoints.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> entries and their scientific, magical, ritualistic, and metaphysical properties.">
     <title>Cosmos University Databanks</title>  
   </head>
   <body>

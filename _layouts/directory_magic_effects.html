@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
+    <meta name="description" content="The Magical Effects Databank contains data on <%= "#{$db_magic_effects.count.humanize}" %> effects and their connection to objects, deities, and rituals.">
     <title>Cosmos University: Magic Effects Databank</title>
   </head>
   <body>
@@ -12,8 +13,12 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Magic Effects Databank</h1>
+        <p>This Databank contains entries on <%= "#{$db_magic_effects.count.humanize}" %> magical effects, and is constantly expanding. This directory is of particular importance to our overall project goals and could be used as a starting point in researching one's own spiritual journey.</p>
+        <p><i>If you're interested in helping:</i> We're currently looking to condense or expand these entries as much as possible. We are looking for suggestions on any effects that may not make sense as read, or may need to be altered to convey the correct meaning.</p>
+        <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}
+        <h2>Magic Effect List</h2>
         <ul>
           {% for item in directory_alpha %}
           <li>

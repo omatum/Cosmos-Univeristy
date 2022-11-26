@@ -41,16 +41,6 @@
 			<a href="..">&larr; Return to Elements Databank Directory</a>
 			<h1>{{element.name}}</h1>
 			<hr>
-			<% if element.has_key?("Copy") %>
-				<% if element["Copy"].length > 10 %>
-					<%= element["Copy"] %>
-				<% else %>
-					{% include frag_helpneeded.html %}
-				<% end %>
-			<% else %>
-				{% include frag_helpneeded.html %} 
-			<% end %>
-			<hr>
 
 
 			<% if element_chakras.count > 0 %>

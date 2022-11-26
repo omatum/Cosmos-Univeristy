@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
+    <meta name="description" content="The Charkas Databank contains data on <%= "#{$db_chakras.count.humanize}" %> chakras and their associated entries to other metaphysical properties and objects.">
     <title>Cosmos University: Chakras Databank</title>
   </head>
   <body>
@@ -12,8 +13,13 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Chakras Databank</h1>
+        <p>This Databank contains entries on <%= "#{$db_chakras.count.humanize}" %> chakras, and will be expanded to contain more systems. This directory page is marked for a graphical update in our next interface upgrade. We are currently in the process of associating other Databanks to this one.</p>
+        <p><i>If you're interested in helping:</i> We're currently looking for more scientific data relating to biological / neurological / electromagnetic chakra identification and measurement.</p>
+        <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}
+        <br>
+        <h2>Chakra List</h2>
         <ul>
           {% for item in directory_alpha %}
           <li>

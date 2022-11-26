@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
+    <meta name="description" content="The Deities Databank contains data on <%= "#{$db_deities.count.humanize}" %> deities and their historical, magical, ritualistic, and metaphysical properties.">
     <title>Cosmos University: Deities Databank</title>
   </head>
   <body>
@@ -12,8 +13,13 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Deities Databank</h1>
+        <p>This Databank contains entries on <%= $db_deities.count.humanize %> deities and their associations to their respective pantheons, spiritual properties, and ritualistic practices. This information is currently being gathered and updated as we accumulate it.</p>
+        <p><i>If you're interested in helping:</i> We are always on the lookout for incorrect information within this databank, often times deity names aren't correctly described in source materials and as a result we create duplicate entries on accident. We are still gathering good source materials for the role of deities in spiritual practices. Additionally we're facing a large backlog of historical data (lineages, properties, and stories) that we would invite help in processing.</p>
+        <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name_common" %}
+        <br>
+        <h2>Deity List</h2>
         <ul>
           {% for item in directory_alpha %}
           <li>

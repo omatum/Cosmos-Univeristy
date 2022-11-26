@@ -34,16 +34,6 @@
 			<a href="..">&larr; Return to Deities Databank Directory</a>
 			<h1>{{deity.name_common}}</h1>
 			<hr>
-			<% if deity.has_key?("Copy") %>
-				<% if deity["Copy"].length > 10 %>
-					<%= deity["Copy"] %>
-				<% else %>
-					{% include frag_helpneeded.html %}
-				<% end %>
-			<% else %>
-				{% include frag_helpneeded.html %} 
-			<% end %>
-			<hr>
 
 			<% if deity_plants.count > 0 %>
 				<h3>Associated Plants</h3>

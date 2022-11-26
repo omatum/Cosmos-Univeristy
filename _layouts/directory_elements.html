@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     {% include basic_head.html %}
+    <meta name="description" content="The Elements Databank contains data on <%= "#{$db_elements.count.humanize}" %> elements and their magical, ritualistic, and metaphysical properties.">
     <title>Cosmos University: Elements Databank</title>
   </head>
   <body>
@@ -12,8 +13,13 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Elements Databank</h1>
+        <p>This Databank contains entries on <%= "#{$db_elements.count.humanize}" %> classical elements, and will be expanded to contain more entries if more of these elements emerge. This directory is typically generated from secondary associations contained within our source materials.</p>
+        <p><i>If you're interested in helping:</i> We're currently seeking more data on associations between these entries and other entries elsewhere in our databanks. Of particular interest we are looking for as much data as possible on Aether.</p>
+        <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}
+        <br>
+        <h2>Element List</h2>
         <ul>
           {% for item in directory_alpha %}
           <li>

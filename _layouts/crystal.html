@@ -101,16 +101,6 @@
 				<p>Known varieties: <%= varieties_arr.join(", ") %></p>
 			<% end %>
 			<hr>
-			<% if crystal.has_key?("Copy") %>
-				<% if crystal["Copy"].length > 10 %>
-					<%= crystal["Copy"] %>
-				<% else %>
-					{% include frag_helpneeded.html %}
-				<% end %>
-			<% else %>
-				{% include frag_helpneeded.html %} 
-			<% end %>
-			<hr>
 			<h2>{{crystal.name_common}} Spiritual Properties from {{crystal.num_magicals}} sources</h2>
 			<hr>
 			<% if crystal_magical_genders.count > 0 %>
