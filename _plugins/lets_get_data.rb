@@ -23,7 +23,8 @@ $db_numbers = JSON.parse(File.read(File.expand_path("../../_data/numbers.json",_
 $db_people = JSON.parse(File.read(File.expand_path("../../_data/people.json",__FILE__))) 
 $db_plant_magicals = JSON.parse(File.read(File.expand_path("../../_data/plant_magicals.json",__FILE__)))
 $db_plants = JSON.parse(File.read(File.expand_path("../../_data/plants.json",__FILE__)))
-$db_religions = JSON.parse(File.read(File.expand_path("../../_data/religions.json",__FILE__))) 
+$db_religions = JSON.parse(File.read(File.expand_path("../../_data/religions.json",__FILE__)))
+$db_religions_connections = JSON.parse(File.read(File.expand_path("../../_data/religions_connections.json",__FILE__)))  
 $db_rituals = JSON.parse(File.read(File.expand_path("../../_data/rituals.json",__FILE__))) 
 $db_sourcebank_image_plants = JSON.parse(File.read(File.expand_path("../../_data/sourcebank_image_plants.json",__FILE__)))
 $db_tarot_deck_cards = JSON.parse(File.read(File.expand_path("../../_data/tarot_deck_cards.json",__FILE__)))  
@@ -54,6 +55,7 @@ $site_json << $db_people
 $site_json << $db_plant_magicals
 $site_json << $db_plants
 $site_json << $db_religions
+$site_json << $db_religions_connections
 $site_json << $db_rituals
 $site_json << $db_sourcebank_image_plants
 $site_json << $db_tarot_deck_cards
@@ -132,6 +134,12 @@ $nav_databanks = {
         for: "plants",
         dir_url: "/databank/plants/",
         num_records: $db_plants.count
+      },
+      {
+        title: "Religions",
+        for: "religions",
+        dir_url: "/databank/religions/",
+        num_records: $db_religions.count
       }
     ],
     sections:

@@ -96,7 +96,9 @@
 						<ul>
 							<% deity["id_religion"].each do |i| %>
 							<% tmpa = $db_religions.find{|k| k["id"] == i } %>
-							<li><%= tmpa['fields']['name'] %></li>
+							<li>
+								<%= "<a href='/databank/religions/#{tmpa['fields']['slug']}'>#{tmpa['fields']['name']}</a>"  %>
+							</li>
 							<% end %>
 						</ul>
 					</li>

@@ -57,7 +57,8 @@ function site_search()
 			E: {name:"Deity",url:"/databank/deities/"},
 			F: {name:"Elements",url:"/databank/elements/"},
 			G: {name:"Magical Effect",url:"/databank/magic-effects/"},
-			H: {name:"Plant",url:"/databank/plants/"}
+			H: {name:"Plant",url:"/databank/plants/"},
+			I: {name:"Religion",url:"/databank/religions/"}
 		}
 
 		var search_result_html = ""

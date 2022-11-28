@@ -10,7 +10,7 @@
 	<br>
 	<br>
 	{% endif %}
-	<code>Data for Cosmos University was generated from <%= $total_sources.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> sources and maps <%= $total_datarecords.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> data records containing <%= $total_datapoints.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> data points. This site was last built on <%= "#{DateTime.now().strftime("%B %-d, %Y at %I:%M%p")} ET" %></code>
+	<code>Data for Cosmos University was generated from <%= $total_sources.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> sources and maps <%= $total_datarecords.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> data records containing <%= $total_datapoints.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> data points. This site was last built on <%= "#{DateTime.now().strftime("%B %-d, %Y at %I:%M%P (%Z UTC)")}" %></code>
 	<br>
 	<br>
 	<a href="/">Return to Homepage</a>

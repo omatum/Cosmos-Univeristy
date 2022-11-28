@@ -117,6 +117,11 @@ class Religion < Airrecord::Table
 	self.table_name = "religions"
 end
 
+class ReligionsConnections < Airrecord::Table
+	self.base_key = ENV['AT_BASE_CUDB_ID']
+	self.table_name = "religions-connections"
+end
+
 class Ritual < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
 	self.table_name = "rituals"
@@ -270,6 +275,11 @@ File.open("_data/religions.json", "w") do |f|
 	f.write(data.to_json)
 end
 
+File.open("_data/religions_connections.json", "w") do |f|
+	data = ReligionsConnections.all
+	f.write(data.to_json)
+end
+
 File.open("_data/rituals.json", "w") do |f|
 	data = Ritual.all
 	f.write(data.to_json)
@@ -322,7 +332,8 @@ $db_numbers = JSON.parse(File.read(File.expand_path("../_data/numbers.json",__FI
 $db_people = JSON.parse(File.read(File.expand_path("../_data/people.json",__FILE__))) 
 $db_plant_magicals = JSON.parse(File.read(File.expand_path("../_data/plant_magicals.json",__FILE__)))
 $db_plants = JSON.parse(File.read(File.expand_path("../_data/plants.json",__FILE__)))
-$db_religions = JSON.parse(File.read(File.expand_path("../_data/religions.json",__FILE__))) 
+$db_religions = JSON.parse(File.read(File.expand_path("../_data/religions.json",__FILE__)))
+$db_religions_connections = JSON.parse(File.read(File.expand_path("../_data/religions_connections.json",__FILE__))) 
 $db_rituals = JSON.parse(File.read(File.expand_path("../_data/rituals.json",__FILE__))) 
 $db_sourcebank_image_plants = JSON.parse(File.read(File.expand_path("../_data/sourcebank_image_plants.json",__FILE__)))
 $db_tarot_deck_cards = JSON.parse(File.read(File.expand_path("../_data/tarot_deck_cards.json",__FILE__)))  
@@ -406,6 +417,15 @@ $db_plants.each do |p|
 		b: p["fields"]["name_common"],
 		c: p['fields']['slug'],
 		d: "#{p['fields']['name_scientific']} | #{p['fields']['names_aka']}"
+	})
+end
+
+$db_religions.each do |p|
+	search_base.push(
+	{
+		a: "I",
+		b: p["fields"]["name"],
+		c: p["fields"]["slug"]
 	})
 end
 

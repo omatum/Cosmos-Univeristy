@@ -1,0 +1,158 @@
+{% assign religion = page.fields %}
+<% religion = {{religion}}.to_h %>
+<% page_category = "religions" %>
+
+<% religion_deities = [] %>
+<% religion_influenced = [] %>
+<% religion_influenced_by = [] %>
+<% religion_adapted = [] %>
+<% religion_adapted_by = [] %>
+
+<% if religion.has_key?("deities") %>
+	<% religion["deities"].each do |i| %>
+		<% religion_deities << $db_deities.find {|j| j["id"]==i} %>
+	<% end %>
+<% end %>
+
+<% if religion.has_key?("connections_out") %>
+	<% religion["connections_out"].each do |i| %>
+		<% tmpa = $db_religions_connections.find{|j| j["id"] == i} %>
+		<% if tmpa["fields"]["relationship"] == "adapted" %>
+			<% tmpa["fields"]["id_religions_related_to"].each do |j| %>
+				<% religion_adapted << $db_religions.find{|k|k["id"]==j} %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "adapted_by" %>
+			<% tmpa["fields"]["id_religions_related_to"].each do |j| %>
+				<% religion_adapted_by << $db_religions.find{|k|k["id"]==j} %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "influenced" %>
+			<% tmpa["fields"]["id_religions_related_to"].each do |j| %>
+				<% religion_influenced << $db_religions.find{|k|k["id"]==j} %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "influenced_by" %>
+			<% tmpa["fields"]["id_religions_related_to"].each do |j| %>
+				<% religion_influenced_by << $db_religions.find{|k|k["id"]==j} %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
+
+<% if religion.has_key?("connections_in") %>
+	<% religion["connections_in"].each do |i| %>
+		<% tmpa = $db_religions_connections.find{|j| j["id"] == i} %>
+		<% if tmpa["fields"]["relationship"] == "adapted" %>
+			<% tmpa["fields"]["id_religions_related_to"].each do |j| %>
+				<% religion_adapted_by << $db_religions.find{|k|k["id"]==tmpa["fields"]["id_religion"][0]} %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "adapted_by" %>
+			<% tmpa["fields"]["id_religions_related_to"].each do |j| %>
+				<% religion_adapted << $db_religions.find{|k|k["id"]==tmpa["fields"]["id_religion"][0]} %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "influenced" %>
+			<% tmpa["fields"]["id_religions_related_to"].each do |j| %>
+				<% religion_influenced_by << $db_religions.find{|k|k["id"]==tmpa["fields"]["id_religion"][0]} %>
+			<% end %>
+		<% end %>
+		<% if tmpa["fields"]["relationship"] == "influenced_by" %>
+			<% tmpa["fields"]["id_religions_related_to"].each do |j| %>
+				<% religion_influenced << $db_religions.find{|k|k["id"]==tmpa["fields"]["id_religion"][0]} %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% include basic_head.html %}
+	<title>{{religion.name}}: Pantheons, Rituals, Spiritual and Historical Data</title>	
+</head>
+<body>
+	<div class="outer-wrap">
+		{% include _nav.html %}
+		<section class="content">
+			{% include _search.html %}
+			<a href="..">&larr; Return to Religions Databank Directory</a>
+			<h1>{{religion.name}}</h1>
+			<ul>
+				<% if religion.has_key?("approx_founding") %>
+				<% founded = religion["approx_founding"] %>
+				<% if founded > 0 %>
+					<% founded = "#{founded.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse} CE" %>
+				<% else %>
+					<% founded = founded * -1 %>
+					<% founded = "#{founded.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse} BCE" %>
+				<% end %>
+				<li><b>Founded:</b> <%= founded %></li>
+				<% end %>
+				<% if religion_adapted.count > 0 %>
+					<% religion_adapted.uniq! %>
+					<% religion_adapted.sort_by!{|k|k["fields"]["name"]} %>
+					<li><b>Adapted Religion(s):</b>
+					<ul>
+						<% religion_adapted.each do |i| %>
+						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}'>#{i['fields']['name']}</a></li>" %>
+						<% end %>
+					</ul>	
+					</li>
+				<% end %>
+				<% if religion_influenced_by.count > 0 %>
+					<% religion_influenced_by.uniq! %>
+					<% religion_influenced_by.sort_by!{|k|k["fields"]["name"]} %>
+					<li><b>Influenced By Religion(s):</b>
+					<ul>
+						<% religion_influenced_by.each do |i| %>
+						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}'>#{i['fields']['name']}</a></li>" %>
+						<% end %>
+					</ul>	
+					</li>
+				<% end %>
+				<% if religion_influenced.count > 0 %>
+					<% religion_influenced.uniq! %>
+					<% religion_influenced.sort_by!{|k|k["fields"]["name"]} %>
+					<li><b>Influenced Religion(s):</b>
+					<ul>
+						<% religion_influenced.each do |i| %>
+						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}'>#{i['fields']['name']}</a></li>" %>
+						<% end %>
+					</ul>	
+					</li>
+				<% end %>
+				<% if religion_adapted_by.count > 0 %>
+					<% religion_adapted_by.uniq! %>
+					<% religion_adapted_by.sort_by!{|k|k["fields"]["name"]} %>
+					<li><b>Adapted By Religion(s):</b>
+					<ul>
+						<% religion_adapted_by.each do |i| %>
+						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}'>#{i['fields']['name']}</a></li>" %>
+						<% end %>
+					</ul>	
+					</li>
+				<% end %>
+			</ul>
+			<hr>
+
+			<% if religion_deities.count > 0 %>
+				<% religion_deities.uniq! %>
+				<% religion_deities.sort_by!{|i|i["fields"]["name_common"]} %>
+				<h3><%= religion["name"] %> Deities, Gods, and Godesses</h3>
+				<ul>
+					<% religion_deities.each do |i| %>
+					<li>
+						<%= "<a href='/databank/deities/#{i['fields']['slug']}/'>#{i['fields']['name_common']}</a>" %>
+					</li>
+					<% end %>
+				</ul>
+			<% end %>
+
+			<br>
+			{% include basic_footer.html %}
+		</section>
+	</div>
+</body>
+</html>
