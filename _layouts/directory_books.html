@@ -15,7 +15,16 @@
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Books Databank</h1>
         <p>This Databank contains entries on <%= "#{$db_books.count.humanize}" %> books that we have utilized to build the datasets which help to inform Cosmos University's Databanks and data models. As we complete the extraction, transmutation, and loading of this data into more usable pieces we update the records contained here.</p>
-        <p><i>If you're interested in helping:</i> We're currently seeking more books that have deep amounts of data contained within them and individuals who would find joy in the process of modeling and extracting data from these books.</p>
+        <br>
+        <h4><b>If you're interested in helping create this databank:</b></h4>
+        <ul>
+          <li>Suggest any data fields we could add</li>
+          <li>Look for any incorrect data</li>
+          <li>We're seeking more books that have deep amounts of data contained within them</li>
+          <li>We're seeking an individual that would find joy in the process of modeling and extracting data from books such as the ones listed below</li>
+          <li>We have access to a large number of sacred texts that we would like to publish with this project, and are looking for suggestions on how best to do that for the benefit of someone interacting with these databanks</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #books channel</i></li>
+        </ul>
         <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.title" %}

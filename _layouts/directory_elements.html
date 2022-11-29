@@ -15,7 +15,14 @@
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Elements Databank</h1>
         <p>This Databank contains entries on <%= "#{$db_elements.count.humanize}" %> classical elements, and will be expanded to contain more entries if more of these elements emerge. This directory is typically generated from secondary associations contained within our source materials.</p>
-        <p><i>If you're interested in helping:</i> We're currently seeking more data on associations between these entries and other entries elsewhere in our databanks. Of particular interest we are looking for as much data as possible on Aether.</p>
+        <br>
+        <h4><b>If you're interested in helping create this databank:</b></h4>
+        <ul>
+          <li>We're seeking data on associations between elements and other databank entries that we have</li>
+          <li>We're seeking as much data on Aether as possible</li>
+          <li>Suggest any data fields we could add</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #elements channel</i></li>
+        </ul>
         <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}

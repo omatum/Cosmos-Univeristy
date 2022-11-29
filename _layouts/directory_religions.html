@@ -15,7 +15,15 @@
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Religions Databank</h1>
         <p>This Databank contains entries on <%= "#{$db_religions.count.humanize}" %> religions and lists their historical information, rituals, pantheons, and any other associated metaphysical properties. This information is currently being gathered and curated as we accumulate it. We anticipate many additions as we work through various histories.</p>
-        <p><i>If you're interested in helping:</i> We are always on the lookout for incorrect information within this databank, and information which we did not correctly assemble. We're facing a backlog of many minor religions that need to be entered. We're also trying to ensure the data we have entered is accurate and thoroughly links various religions with each other.</p>
+        <br>
+        <h4><b>If you're interested in helping create this databank:</b></h4>
+        <ul>
+          <li>Look for any incorrect data</li>
+          <li>Suggest data fields we could add</li>
+          <li>Suggest religions we may have missed</li>
+          <li>Suggest links we may have missed (religion influence, inspiration, etc)</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #religions channel</i></li>
+        </ul>
         <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}

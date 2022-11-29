@@ -15,7 +15,14 @@
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Crystals Databank</h1>
         <p>This Databank contains entries on <%= $db_crystals.count.humanize %> crystals and lists their scientific, magical, ritualistic, and metaphysical propetries. This information is currently being gathered and updated as we accumulate it.</p>
-        <p><i>If you're interested in helping:</i> We're facing a large backlog of scientific data that must be processed into these records. We are seeking additional sources on magical / spritual information.</p>
+        <br>
+        <h4><b>If you're interested in helping create this databank:</b></h4>
+        <ul>
+          <li>We're seeking additional sources on magical properties and use in rituals</li>
+          <li>Suggest any data fields we could add</li>
+          <li>We're facing a large backlog of scientific data that must be processed into these records</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #crystals channel</i></li>
+        </ul>
         <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name_common" %}

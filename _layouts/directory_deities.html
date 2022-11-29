@@ -15,7 +15,16 @@
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Deities Databank</h1>
         <p>This Databank contains entries on <%= $db_deities.count.humanize %> deities and their associations to their respective pantheons, spiritual properties, and ritualistic practices. This information is currently being gathered and updated as we accumulate it.</p>
-        <p><i>If you're interested in helping:</i> We are always on the lookout for incorrect information within this databank, often times deity names aren't correctly described in source materials and as a result we create duplicate entries on accident. We are still gathering good source materials for the role of deities in spiritual practices. Additionally we're facing a large backlog of historical data (lineages, properties, and stories) that we would invite help in processing.</p>
+        <br>
+        <h4><b>If you're interested in helping create this databank:</b></h4>
+        <ul>
+          <li>Let us know if you see any incorrect data</li>
+          <li>We are looking for help with deity names being incorrectly represented and potentially creating duplicate entries</li>
+          <li>We are seeking materials that define the role of deities in spiritual practices</li>
+          <li>Suggest any data fields we could add</li>
+          <li>We have a large backlog of data (lineages/ families, properties, stories, etc) that need to be entered</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #deities channel</i></li>
+        </ul>
         <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name_common" %}

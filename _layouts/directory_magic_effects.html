@@ -14,8 +14,17 @@
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Magic Effects Databank</h1>
-        <p>This Databank contains entries on <%= "#{$db_magic_effects.count.humanize}" %> magical effects, and is constantly expanding. This directory is of particular importance to our overall project goals and could be used as a starting point in researching one's own spiritual journey.</p>
-        <p><i>If you're interested in helping:</i> We're currently looking to condense or expand these entries as much as possible. We are looking for suggestions on any effects that may not make sense as read, or may need to be altered to convey the correct meaning.</p>
+        <p>This Databank contains entries on <%= "#{$db_magic_effects.count.humanize}" %> magical effects, and is constantly expanding. This directory is of particular importance to our overall project goals and could be used as a starting point in researching one's own spiritual journey. We are currently working on further classifying these effects and generating descriptions for each of them.</p>
+        <br>
+        <h4><b>If you're interested in helping create this databank:</b></h4>
+        <ul>
+          <li>Let us know if we can condense or expand any entries (too similar, or too many nuances)</li>
+          <li>Let us know if any of the effects don't make sense as written</li>
+          <li>Suggest data fields we could add</li>
+          <li>Suggest rewriting any effect titles if the incorrect meaning is being conveyed</li>
+          <li>If you're a great writer and researcher, there is a significant backlog of descriptive properties needing to be filled in.</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #magic-effects channel</i></li>
+        </ul>
         <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}

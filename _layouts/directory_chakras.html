@@ -15,7 +15,13 @@
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Chakras Databank</h1>
         <p>This Databank contains entries on <%= "#{$db_chakras.count.humanize}" %> chakras, and will be expanded to contain more systems. This directory page is marked for a graphical update in our next interface upgrade. We are currently in the process of associating other Databanks to this one.</p>
-        <p><i>If you're interested in helping:</i> We're currently looking for more scientific data relating to biological / neurological / electromagnetic chakra identification and measurement.</p>
+        <br>
+        <h4><b>If you're interested in helping create this databank:</b></h4>
+        <ul>
+          <li>We're seeking data related to biological, neurological, and electromagnetic studies done in regards to the areas in which chakras are purported to be</li>
+          <li>Suggest any data fields we could add</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #chakras channel</i></li>
+        </ul>
         <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}

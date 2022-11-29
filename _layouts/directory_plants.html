@@ -15,7 +15,16 @@
         <a href="..">&larr; Return to Databank Directory</a>
         <h1>Cosmos University: Plants Databank</h1>
         <p>This Databank contains entries on <%= $db_plants.count.humanize %> plants and lists their scientific, magical, ritualistic, and metaphysical propetries. This information is currently being gathered and updated as we accumulate it. This directory is scheduled to receive a major interface update shortly.</p>
-        <p><i>If you're interested in helping:</i> We are always on the lookout for incorrect information within this databank, often times plant names aren't correctly described in source materials and as a result we create duplicate entries on accident. Additionally we're facing a large backlog of scientific data that must be processed into these records.</p>
+        <br>
+        <h4><b>If you're interested in helping create this databank:</b></h4>
+        <ul>
+          <li>Look for any incorrect data</li>
+          <li>Suggest data fields we could add</li>
+          <li>Suggest plants we may have missed</li>
+          <li>Folk names are hard to track down and map correctly, often we create duplicate entries because of an archaic folk name being replaced with a common folk name - be on the look out for records like this</li>
+          <li>We're facing a large backlog of scientific data that must be processed into these records</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #plants channel</i></li>
+        </ul>
         <br>
         <hr>
         {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name_common" %}
