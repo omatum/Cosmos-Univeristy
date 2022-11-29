@@ -13,7 +13,7 @@ body #logo {
 body #logo img {
   width: 100%;
 }
-body h2 {
+body h1, body h2 {
   font-size: 2rem;
   font-weight: 900;
   padding-bottom: 1rem;
