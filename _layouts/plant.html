@@ -86,8 +86,7 @@
 				<i><%= plant["name_scientific"] %></i>
 			<% end %>
 			<hr>
-			<h2>{{plant.name_common}} Spiritual Properties from {{plant.num_magicals}} sources</h2>
-			<hr>
+			<h2>{{plant.name_common}} Spiritual Properties from <i><%= plant["num_magicals"].humanize %> sources</i></h2>
 			<% if plant_magical_genders.count > 0 %>
 				<h3>Genders</h3>
 				<ul>
@@ -214,6 +213,20 @@
 						</li>
 				<% end %>
 				</ul>
+			<% end %>
+
+			<% if plant.has_key?("materia") %>
+			<br>
+
+			<hr>
+			<br>
+			<h2>Known metaphysical Materia of <%= plant["name_common"]%></h2>
+			<ul>
+				<% plant["materia"].each do |i| %>
+				<% tmpa = $db_materia.find{|k|k["id"]==i} %>
+				<%= "<li>#{tmpa["fields"]["name"]}<br><span>#{tmpa["fields"]["Type"]} > #{tmpa["fields"]["subtype_part"]} > #{tmpa["fields"]["subtype_altr"]}</span></li>" %>
+				<% end %>
+			</ul>
 			<% end %>
 
 			<br>
