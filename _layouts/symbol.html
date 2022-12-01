@@ -1,0 +1,27 @@
+{% assign symb = page.fields %}
+<% symb = {{symb}}.to_h %>
+<% page_category = "symbols" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% include basic_head.html %}
+	<title>{{symb.name}} Effect: Spiritual and Scientific Data</title>	
+</head>
+<body>
+	<div class="outer-wrap">
+		{% include _nav.html %}
+		<section class="content">
+				{% include _search.html %}
+				<a href="..">&larr; Return to Symbols Databank Gallery</a>
+				<h1><img src="{{symb.attachment[0].url}}" alt="Symbol for {{symb.slug}}"></h1>
+				<hr>
+
+				
+				<br>
+				
+				{% include basic_footer.html %}
+		</section>
+	</div>
+</body>
+</html>

@@ -63,6 +63,11 @@ page_gen:
     dir: databank/religions
     index_files: true
     name_expr: record['fields']['slug']
+  - data: symbols_assets
+    template: symbol
+    dir: databank/symbols
+    index_files: true
+    name_expr: record['fields']['slug']
 
 
 # Exclude from processing.

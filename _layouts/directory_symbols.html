@@ -1,0 +1,45 @@
+<% page_category = "symbols" %>
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include basic_head.html %}
+    <meta property="og:image" content="https://cosmos.university/social/og-cosmosuniversity-esotericknowledgedatabanks-seal.png" />
+    <meta name="description" content="The Symbols Databank contains data on <%= "#{$db_symbols.count.humanize}" %> symbols and their historical, magical, ritualistic, and metaphysical uses and properties.">
+    <title>Cosmos University: Symbols Databank</title>
+  </head>
+  <body>
+    <div class="outer-wrap">
+      {% include _nav.html %}
+      <section class="content">
+        {% include _search.html %}
+        <a href="..">&larr; Return to Databank Directory</a>
+        <h1>Cosmos University: Symbols Databank</h1>
+        <p>This Databank contains entries on <%= "#{$db_religions.count.humanize}" %> symbols and their connections to other databanks. This information is currently being gathered and curated as we accumulate it. Our future plans include more linking between symbols, and further association into other databank entries.</p>
+        <br>
+        <div><b>If you're interested in helping create this databank:</b></div>
+        <ul>
+          <li>Suggest data fields we could add</li>
+          <li>Suggest or provide symbols we can recreate or use</li>
+          <li>Help us create better versions of existing symbols</li>
+          <li>Help us determine what other databanks could take advantage of these symbols</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #symbols channel</i></li>
+        </ul>
+        <br>
+        <hr>
+        {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name" %}
+        <br>
+        <h2>Symbol Gallery</h2>
+        <ul class="gallery">
+          {% for item in directory_alpha %}
+          <li>
+            <a href="{{item.fields.slug}}/">
+              <img src="{{item.fields.attachment[0].url}}" alt="Symbol {{item.fields.slug}} cosmos databank image">
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% include basic_footer.html %}
+      </section>
+    </div>
+  </body>
+</html>

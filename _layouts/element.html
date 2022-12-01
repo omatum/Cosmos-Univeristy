@@ -26,7 +26,6 @@
 	<% end %>
 <% end %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +39,9 @@
 			{% include _search.html %}
 			<a href="..">&larr; Return to Elements Databank Directory</a>
 			<h1>{{element.name}}</h1>
+			<% if element.has_key?("cover_img_attachment") %>
+			<%= "<img src='#{element["cover_img_attachment"][0]["url"]}' alt='Elemental #{element["name"]} Symbol'>" %>
+			<% end %>
 			<hr>
 
 

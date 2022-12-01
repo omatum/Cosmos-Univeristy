@@ -87,6 +87,10 @@ module Jekyll
 
       filename = sanitize_filename(raw_filename).to_s
 
+
+      ##Adding this because some of the unicode urls were adding that exact string (for who knows what reason)
+      filename.gsub!("\xEF\xB8\x8E".force_encoding("UTF-8"), '')
+
       @dir = dir + (index_files ? "/" + filename + "/" : "")
       @name = (index_files ? "index" : filename) + "." + extension.to_s
 

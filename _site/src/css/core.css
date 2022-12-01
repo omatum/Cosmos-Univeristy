@@ -170,6 +170,20 @@ section.content {
           flex: 1 1 100%;
 }
 
+ul.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+ul.gallery li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+}
+
 nav {
   position: relative;
   background-color: black;

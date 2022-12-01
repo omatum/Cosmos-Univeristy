@@ -93,11 +93,12 @@
 				<% plant_magical_genders.sort! %>
 				<% tally_arr = plant_magical_genders.tally %>
 				<% tally_arr.each do |p,k| %>
+					<% gender_img = $db_symbols_links.find{|i|i["fields"]["name"] == "global_#{p.upcase}"} %>
 					<li>
-						<%= p %>
-						<% if k > 1 %>
-							<br><span>(<%= k %> sources agree)</span>
-						<% end %>		
+					<%= p %>
+					<% if k > 1 %>
+						<br><span>(<%= k %> sources agree)</span>
+					<% end %>		
 					</li>
 				<% end %>
 				</ul>

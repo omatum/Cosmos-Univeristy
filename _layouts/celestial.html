@@ -50,6 +50,20 @@
 			</ul>
 			<hr>
 
+			<% if celestial.has_key?('symbols-links') %>
+				<h3>Associated Symbols</h3>
+				<ul class="gallery">
+				<% celestial['symbols-links'].each do |k| %>
+					<li>
+						<% tmpb = $db_symbols_links.find{|i| i["id"]==k} %>
+						<% tmpa = $db_symbols_assets.find{|i| i["id"]==tmpb["fields"]["id_symbols_assets"][0]} %>
+						<% slug = tmpa['fields']['slug'].gsub("\xEF\xB8\x8E".force_encoding("UTF-8"), '') %>
+						<%= "<a href='/databank/symbols/#{slug}/'><img src='#{tmpa['fields']['attachment'][0]['url']}' alt='Symbol associated to #{celestial["name"]}'></a>" %>
+					</li>
+				<% end %>
+				</ul>
+			<% end %>
+
 			<% if celestial_plants.count > 0 %>
 				<h3>Associated Plants</h3>
 				<ul>

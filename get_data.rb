@@ -132,11 +132,26 @@ class SourcebankImagePlant < Airrecord::Table
 	self.table_name = "sourcebank_images-plants"
 end
 
+class Symbols < Airrecord::Table
+	self.base_key = ENV['AT_BASE_CUDB_ID']
+	self.table_name = "symbols"
+end
+
+class SymbolsAssets < Airrecord::Table
+	self.base_key = ENV['AT_BASE_CUDB_ID']
+	self.table_name = "symbols-assets"
+end
+
+class SymbolsLinks < Airrecord::Table
+	self.base_key = ENV['AT_BASE_CUDB_ID']
+	self.table_name = "symbols-links"
+end
+
+
 class Tarot < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
 	self.table_name = "tarot"
 end
-
 
 class TarotDeck < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
@@ -156,23 +171,8 @@ end
 
 File.open("_data/books.json", "w") do |f|
 	books = Book.all
-
-	#books.map do |book|
-	#	book.dbl_authors = book.authors.to_a
-	#end
-
-	#books.map do |book|
-	#	book.dbl_authors = []
-	#	book.authors.map do |author|
-	#		book.dbl_authors << Person.find(author.id)
-	#	end
-	#end
-
 	f.write(books.to_json)
 end
-
-#puts "#{Book.all.count} books added"
-
 
 File.open("_data/celestials.json", "w") do |f|
 	data = Celestial.all
@@ -290,6 +290,21 @@ File.open("_data/sourcebank_image_plants.json", "w") do |f|
 	f.write(data.to_json)
 end
 
+File.open("_data/symbols.json", "w") do |f|
+	data = Symbols.all
+	f.write(data.to_json)
+end
+
+File.open("_data/symbols_assets.json", "w") do |f|
+	data = SymbolsAssets.all
+	f.write(data.to_json)
+end
+
+File.open("_data/symbols_links.json", "w") do |f|
+	data = SymbolsLinks.all
+	f.write(data.to_json)
+end
+
 File.open("_data/tarots.json", "w") do |f|
 	data = Tarot.all
 	f.write(data.to_json)
@@ -336,6 +351,9 @@ $db_religions = JSON.parse(File.read(File.expand_path("../_data/religions.json",
 $db_religions_connections = JSON.parse(File.read(File.expand_path("../_data/religions_connections.json",__FILE__))) 
 $db_rituals = JSON.parse(File.read(File.expand_path("../_data/rituals.json",__FILE__))) 
 $db_sourcebank_image_plants = JSON.parse(File.read(File.expand_path("../_data/sourcebank_image_plants.json",__FILE__)))
+$db_symbols = JSON.parse(File.read(File.expand_path("../_data/symbols.json",__FILE__)))
+$db_symbols_assets = JSON.parse(File.read(File.expand_path("../_data/symbols_assets.json",__FILE__)))
+$db_symbols_links = JSON.parse(File.read(File.expand_path("../_data/symbols_links.json",__FILE__)))
 $db_tarot_deck_cards = JSON.parse(File.read(File.expand_path("../_data/tarot_deck_cards.json",__FILE__)))  
 $db_tarot_decks = JSON.parse(File.read(File.expand_path("../_data/tarot_decks.json",__FILE__))) 
 $db_tarots = JSON.parse(File.read(File.expand_path("../_data/tarots.json",__FILE__))) 
@@ -428,6 +446,7 @@ $db_religions.each do |p|
 		c: p["fields"]["slug"]
 	})
 end
+
 
 File.open("src/js/data/search.json", "w") do |f|
 	tmp = "const cosmos_search_data = #{search_base.to_json}"
