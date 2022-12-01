@@ -6,7 +6,7 @@
 <html>
 <head>
 	{% include basic_head.html %}
-	<title>{{symb.name}} Effect: Spiritual and Scientific Data</title>	
+	<title><%= symb["slug"] %> Symbol: Spiritual and Scientific Data</title>	
 </head>
 <body>
 	<div class="outer-wrap">
@@ -15,7 +15,40 @@
 				{% include _search.html %}
 				<a href="..">&larr; Return to Symbols Databank Gallery</a>
 				<h1><img src="{{symb.attachment[0].url}}" alt="Symbol for {{symb.slug}}"></h1>
+				
+				<% if symb.has_key?("symbol_groups") || symb.has_key?("Unicode") %>
+				<ul>
+					<% if symb.has_key?("Unicode") %>
+					<li><b>Symbol unicode:</b> <%=symb["Unicode"] %></li>
+					<% end %>
+					<% if symb.has_key?("symbol_groups") %>
+					<li><b>Symbol groups:</b></li>
+					<ul>
+					<% symb["symbol_groups"].each do |k| %>
+					<% tmpa = $db_symbols.find{|i|i["id"]==k} %>
+					<%= "<li>#{tmpa["fields"]["name"]}</li>" %>
+					<% end %>
+					</ul>
+					<% end %>
+				</ul>
+				<% end %>
 				<hr>
+				<% if symb.has_key?("symbols-links") %>
+				<h3><%= symb["slug"] %> references in other databanks</h3>
+				<ul>
+					<% symb["symbols-links"].each do |k| %>
+					<% tmpa = $db_symbols_links.find{|i|i["id"]==k } %>
+					<% appnd = "" %>
+					<% if tmpa["fields"]["link_type"] == "global" %>
+					<% appnd = "Global variable [ #{tmpa["fields"]["global_var"]} ]" %>
+					<% end %>
+					<% if tmpa["fields"]["link_type"] == "record" %>
+					<% appnd = "Asset for #{tmpa["fields"]["link_for"]} <a href='#{tmpa['fields']['link_total']}'>#{tmpa["fields"]["link_to"].capitalize}</a>" %>
+					<% end %>
+					<%= "<li>#{appnd}</li>" %>
+					<% end %>
+				</ul>
+				<% end %>
 
 				
 				<br>
