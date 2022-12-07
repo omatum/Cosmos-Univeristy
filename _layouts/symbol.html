@@ -3,7 +3,7 @@
 <% page_category = "symbols" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	{% include basic_head.html %}
 	<title><%= symb["slug"] %> Symbol: Spiritual and Scientific Data</title>	
@@ -34,7 +34,7 @@
 				<% end %>
 				<hr>
 				<% if symb.has_key?("symbols-links") %>
-				<h3><%= symb["slug"] %> references in other databanks</h3>
+				<h3><%= symb["slug"] %> has <%= symb["symbols-links"].count %> references in other databanks</h3>
 				<ul>
 					<% symb["symbols-links"].each do |k| %>
 					<% tmpa = $db_symbols_links.find{|i|i["id"]==k } %>

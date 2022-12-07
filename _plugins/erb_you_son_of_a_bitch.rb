@@ -15,6 +15,8 @@ module EmbeddedRuby
     #paginator = RecursiveOpenStruct.new(payload.paginator,
                                        # recurse_over_arrays: true)
 
+    #USEFUL DEBUG TOOL
+    #puts payload.page["title"]
     return ERB.new(liquid).result(binding)
   end
 end

@@ -15,18 +15,22 @@
 		<% celestial_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
 	<% end %>
 <% else %>
-	<% celestial["plants_magical"].each do |p| %>
-		<% tmpa = $db_plant_magicals.find { |k| k["id"] == p} %>
-		<% celestial_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
+	<% if celestial.has_key?("plants_magical") %>
+		<% celestial["plants_magical"].each do |p| %>
+			<% tmpa = $db_plant_magicals.find { |k| k["id"] == p} %>
+			<% celestial_plants <<  $db_plants.find { |k| k["id"] == tmpa["fields"]["id_plant"][0] } %>
+		<% end %>
 	<% end %>
-	<% celestial["crystals_magical"].each do |p| %>
-		<% tmpa = $db_crystals_magicals.find { |k| k["id"] == p} %>
-		<% celestial_crystals <<  $db_crystals.find { |k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+	<% if celestial.has_key?("crystals_magical") %>
+		<% celestial["crystals_magical"].each do |p| %>
+			<% tmpa = $db_crystals_magicals.find { |k| k["id"] == p} %>
+			<% celestial_crystals <<  $db_crystals.find { |k| k["id"] == tmpa["fields"]["id_crystal"][0] } %>
+		<% end %>
 	<% end %>
 <% end %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	{% include basic_head.html %}
 	<title>{{celestial.name}}: Spiritual and Scientific Data</title>	

@@ -67,7 +67,7 @@
 <% end %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	{% include basic_head.html %}
 	<title>{{religion.name}}: Pantheons, Rituals, Spiritual and Historical Data</title>	
@@ -96,7 +96,7 @@
 					<li><b>Adapted Religion(s):</b>
 					<ul>
 						<% religion_adapted.each do |i| %>
-						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}'>#{i['fields']['name']}</a></li>" %>
+						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}/'>#{i['fields']['name']}</a></li>" %>
 						<% end %>
 					</ul>	
 					</li>
@@ -107,7 +107,7 @@
 					<li><b>Influenced By Religion(s):</b>
 					<ul>
 						<% religion_influenced_by.each do |i| %>
-						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}'>#{i['fields']['name']}</a></li>" %>
+						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}/'>#{i['fields']['name']}</a></li>" %>
 						<% end %>
 					</ul>	
 					</li>
@@ -118,7 +118,7 @@
 					<li><b>Influenced Religion(s):</b>
 					<ul>
 						<% religion_influenced.each do |i| %>
-						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}'>#{i['fields']['name']}</a></li>" %>
+						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}/'>#{i['fields']['name']}</a></li>" %>
 						<% end %>
 					</ul>	
 					</li>
@@ -129,7 +129,7 @@
 					<li><b>Adapted By Religion(s):</b>
 					<ul>
 						<% religion_adapted_by.each do |i| %>
-						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}'>#{i['fields']['name']}</a></li>" %>
+						<%= "<li><a href='/databank/religions/#{i['fields']['slug']}/'>#{i['fields']['name']}</a></li>" %>
 						<% end %>
 					</ul>	
 					</li>

@@ -78,7 +78,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	{% include basic_head.html %}
 	<title>{{deity.name_common}}: Metaphysical and Historical Data</title>	
@@ -97,7 +97,7 @@
 							<% deity["id_religion"].each do |i| %>
 							<% tmpa = $db_religions.find{|k| k["id"] == i } %>
 							<li>
-								<%= "<a href='/databank/religions/#{tmpa['fields']['slug']}'>#{tmpa['fields']['name']}</a>"  %>
+								<%= "<a href='/databank/religions/#{tmpa['fields']['slug']}/'>#{tmpa['fields']['name']}</a>"  %>
 							</li>
 							<% end %>
 						</ul>

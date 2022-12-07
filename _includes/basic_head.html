@@ -9,6 +9,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="content-language" content="en-us">
+{% if page.fields.record_meta %}
+<meta name="description" content="{{page.fields.record_meta}}">
+{% endif %}
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 <link rel="canonical" href="{{site.url}}{{page.url}}">
 <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7346472/6261632/css/fonts.css" />
