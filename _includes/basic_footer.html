@@ -1,15 +1,14 @@
 <footer>
 	<hr>
 	<br>
-	{% if page.is_a != "dir" %}
 	{% include frag_helpneeded.html %}
 	<br>
-	<hr>
+	<hr><br>
+	<code>Page data created: {{page.fields["Created"] | date: "%B %-d, %Y at %I:%M%P"}} GMT by {{page.fields["Created By"].name}}</code>
 	<br>
-	<code>Page data last updated: {{page.fields["Last Modified"] | date: "%B %-d, %Y at %I:%M%P"}} GMT by {{page.fields["Last Modified By"].name}}</code>
+	<code>Page data updated: {{page.fields["Last Modified"] | date: "%B %-d, %Y at %I:%M%P"}} GMT by {{page.fields["Last Modified By"].name}}</code>
 	<br>
 	<br>
-	{% endif %}
 	<code>Data for Cosmos University was generated from <%= $total_sources.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> sources and maps <%= $total_datarecords.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> data records containing <%= $total_datapoints.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> data points.</code>
 	<br>
 	<br>
