@@ -1,0 +1,65 @@
+{% assign person = page.fields %}
+<% person = {{person}}.to_h %>
+<% page_category = "people" %>
+
+<% person_books = [] %>
+<% person_created_pages = [] %>
+
+<% if person.has_key?("books-contributed_to") %>
+	<% person["books-contributed_to"].each do |i| %>
+		<% person_books << $db_books.find{|j| j["id"]==i} %>
+	<% end %>
+<% end %>
+
+<% if person.has_key?("is_user") %>
+	<% this_user_id = person["is_user"]["id"] %>
+	<% $site_json.each do |h| %>
+		<% h.each do |i| %>
+			<% if i["fields"].has_key?("Created By") %>
+				<% if i["fields"]["Created By"]["id"] == this_user_id %>
+				<% person_created_pages << i %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include basic_head.html %}
+	<title>{{person.name_full_long}}: Data</title>	
+</head>
+<body>
+	<div class="outer-wrap">
+		{% include _nav.html %}
+		<section class="content">
+			{% include _search.html %}
+			<a href="..">&larr; Return to People Databank Directory</a>
+			<h1>{{person.name_full_long}}</h1>
+			<ul>
+				<% if person.has_key?("Notables") %>
+					<% person["Notables"].each do |i| %>
+						<%= "<li>#{i}</li>" %>
+					<% end %>
+				<% end %>
+			</ul>
+			<hr>
+			<% if person_books.count > 0 %>
+			<% person_books.uniq! %>
+			<% person_books.sort_by!{|i|i["fields"]["title"]} %>
+			<h2>Books that <%= person['name_full_long'] %> contributed to</h2>
+			<ul>
+				<% person_books.each do |i| %>
+				<li>
+					<%= "<a href='/databank/books/#{i['fields']['slug']}/'>#{i['fields']['title']}</a>" %>
+				</li>
+				<% end %>
+			</ul>
+			<% end %>
+			<br>
+			{% include basic_footer.html %}
+		</section>
+	</div>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <head>
     {% include basic_head.html %}
     <meta property="og:image" content="https://cosmos.university/social/og-cosmosuniversity-esotericknowledgedatabanks-seal.png" />
-    <meta name="description" content="The Cosmos University Databanks contains information on <%= $total_datapoints.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> entries and their scientific, magical, ritualistic, and metaphysical properties.">
+    <meta name="description" content="The Cosmos University Databanks contain information on <%= $total_datapoints.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> entries and their scientific, magical, ritualistic, and metaphysical properties.">
     <title>Cosmos University Databanks</title>  
   </head>
   <body>
@@ -12,7 +12,7 @@
       {% include _nav.html %}
       <section class="content">
         {% include _search.html %}
-        <h1>Cosmos University: Databanks</h1>
+        <h1>Cosmos University: Esoteric Databanks</h1>
         <hr>
         <ul>
           <% $nav_databanks[:live][:databanks].each do |p| %>

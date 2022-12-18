@@ -5,7 +5,7 @@
     {% include basic_head.html %}
     <meta property="og:image" content="https://cosmos.university/social/og-cosmosuniversity-esotericknowledgedatabanks-seal.png" />
     <meta name="description" content="The Plants Databank contains data on <%= "#{$db_plants.count.humanize}" %> plants and their scientific, magical, ritualistic, and metaphysical properties.">
-    <title>Cosmos University: Plants Databank</title>
+    <title>Plants Databank</title>
   </head>
   <body data-directory="plants">
     <div class="outer-wrap">
@@ -13,7 +13,7 @@
       <section class="content">
         {% include _search.html %}
         <a href="..">&larr; Return to Databank Directory</a>
-        <h1>Cosmos University: Plants Databank</h1>
+        <h1>Plants Databank</h1>
         <p>This Databank contains entries on <%= $db_plants.count.humanize %> plants and lists their scientific, magical, ritualistic, and metaphysical propetries. This information is currently being gathered and updated as we accumulate it. This directory is scheduled to receive a major interface update shortly.</p>
         <br>
         <div><b>If you're interested in helping create this databank:</b></div>

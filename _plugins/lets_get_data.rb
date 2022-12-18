@@ -85,7 +85,6 @@ $site_json.each do |h|
   end
 end
 
-
 puts "Sources: #{$total_sources} || Records: #{$total_datarecords} || Datapoints: #{$total_datapoints}"
 
 $nav_databanks = {
@@ -140,6 +139,12 @@ $nav_databanks = {
         for: "plants",
         dir_url: "/databank/plants/",
         num_records: $db_plants.count
+      },
+      {
+        title: "People",
+        for: "people",
+        dir_url: "/databank/people/",
+        num_records: $db_people.count
       },
       {
         title: "Religions",

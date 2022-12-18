@@ -58,6 +58,11 @@ page_gen:
     dir: databank/plants
     index_files: true
     name_expr: record['fields']['slug']
+  - data: people
+    template: person
+    dir: databank/people
+    index_files: true
+    name_expr: record['fields']['slug']
   - data: religions
     template: religion
     dir: databank/religions

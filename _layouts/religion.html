@@ -140,7 +140,7 @@
 			<% if religion_deities.count > 0 %>
 				<% religion_deities.uniq! %>
 				<% religion_deities.sort_by!{|i|i["fields"]["name_common"]} %>
-				<h3><%= religion["name"] %> Deities, Gods, and Godesses</h3>
+				<h2><%= religion["name"] %> Deities, Gods, and Godesses</h3>
 				<ul>
 					<% religion_deities.each do |i| %>
 					<li>

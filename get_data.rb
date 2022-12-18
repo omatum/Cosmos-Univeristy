@@ -438,10 +438,19 @@ $db_plants.each do |p|
 	})
 end
 
-$db_religions.each do |p|
+$db_people.each do |p|
 	search_base.push(
 	{
 		a: "I",
+		b: p["fields"]["name_full_long"],
+		c: p['fields']['slug']
+	})
+end
+
+$db_religions.each do |p|
+	search_base.push(
+	{
+		a: "J",
 		b: p["fields"]["name"],
 		c: p["fields"]["slug"]
 	})
