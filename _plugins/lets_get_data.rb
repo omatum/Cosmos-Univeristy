@@ -14,6 +14,7 @@ $db_cycles_rhythms = JSON.parse(File.read(File.expand_path("../../_data/cycles_r
 $db_deities = JSON.parse(File.read(File.expand_path("../../_data/deities.json",__FILE__)))
 $db_deities_family = JSON.parse(File.read(File.expand_path("../../_data/deities_family.json",__FILE__)))
 $db_elements = JSON.parse(File.read(File.expand_path("../../_data/elements.json",__FILE__)))
+$db_entities = JSON.parse(File.read(File.expand_path("../../_data/entities.json",__FILE__)))
 $db_institutions = JSON.parse(File.read(File.expand_path("../../_data/institutions.json",__FILE__)))   
 $db_magic_effects = JSON.parse(File.read(File.expand_path("../../_data/magic_effects.json",__FILE__)))
 $db_magic_schools = JSON.parse(File.read(File.expand_path("../../_data/magic_schools.json",__FILE__)))
@@ -48,6 +49,7 @@ $site_json << $db_cycles_rhythms
 $site_json << $db_deities
 $site_json << $db_deities_family
 $site_json << $db_elements
+$site_json << $db_entities
 $site_json << $db_institutions
 $site_json << $db_magic_effects
 $site_json << $db_magic_schools
@@ -127,6 +129,12 @@ $nav_databanks = {
         for: "elements",
         dir_url: "/databank/elements/",
         num_records: $db_elements.count
+      },
+      {
+        title: "Entities",
+        for: "entities",
+        dir_url: "/databank/entities/",
+        num_records: $db_entities.count
       },
       {
         title: "Magical Effects",

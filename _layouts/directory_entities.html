@@ -1,0 +1,45 @@
+<% page_category = "entities" %>
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include basic_head.html %}
+    <meta property="og:image" content="https://cosmos.university/social/og-cosmosuniversity-esotericknowledgedatabanks-seal.png" />
+    <meta name="description" content="The Entities Databank contains data on <%= "#{$db_entities.count.humanize}" %> types of entities, named entities within those groups, and more.">
+    <title>Entities Databank</title>
+  </head>
+  <body>
+    <div class="outer-wrap">
+      {% include _nav.html %}
+      <section class="content">
+        {% include _search.html %}
+        <a href="..">&larr; Return to Databank Directory</a>
+        <h1>Entities Databank</h1>
+        <p>This Databank contains entries on <%= "#{$db_entities.count.humanize}" %> types of entities that we have identified while building the datasets which comprise Cosmos University's Databanks and data models.</p>
+        <br>
+        <div><b>If you're interested in helping create this databank:</b></div>
+        <ul>
+          <li>Suggest records we could add (types of entities)</li>
+          <li>Suggest any data fields we could add</li>
+          <li>Suggest any data that we could add to existing entities (such as named entities, historical recognitions, etc)</li>
+          <li>Look for any incorrect data</li>
+          <li><i>If you'd like to help, please <a href="https://discord.gg/U7SHmbntuh">join our Discord</a> and make suggestions in the databanks -> #entities channel</i></li>
+        </ul>
+        <br>
+        <hr>
+        {% assign directory_alpha = site.data[page.directory_for] | sort: "fields.name_plural" %}
+        <br>
+        <h2>Entities List</h2>
+        <ul>
+          {% for item in directory_alpha %}
+          <li>
+            <a href="{{item.fields.slug}}/">
+              {{item.fields.name_plural}}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% include basic_footer_directory.html %}
+      </section>
+    </div>
+  </body>
+</html>

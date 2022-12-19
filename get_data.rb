@@ -63,6 +63,11 @@ class Element < Airrecord::Table
 	self.table_name = "elements"
 end
 
+class Entity < Airrecord::Table
+	self.base_key = ENV['AT_BASE_CUDB_ID']
+	self.table_name = "entities"
+end
+
 class Institution < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
 	self.table_name = "institutions"
@@ -147,7 +152,6 @@ class SymbolsLinks < Airrecord::Table
 	self.table_name = "symbols-links"
 end
 
-
 class Tarot < Airrecord::Table
 	self.base_key = ENV['AT_BASE_CUDB_ID']
 	self.table_name = "tarot"
@@ -221,6 +225,11 @@ end
 
 File.open("_data/elements.json", "w") do |f|
 	data = Element.all
+	f.write(data.to_json)
+end
+
+File.open("_data/entities.json", "w") do |f|
+	data = Entity.all
 	f.write(data.to_json)
 end
 
@@ -338,6 +347,7 @@ $db_cycles = JSON.parse(File.read(File.expand_path("../_data/cycles.json",__FILE
 $db_cycles_rhythms = JSON.parse(File.read(File.expand_path("../_data/cycles_rhythms.json",__FILE__)))
 $db_deities = JSON.parse(File.read(File.expand_path("../_data/deities.json",__FILE__)))  
 $db_elements = JSON.parse(File.read(File.expand_path("../_data/elements.json",__FILE__)))
+$db_entities = JSON.parse(File.read(File.expand_path("../_data/entities.json",__FILE__)))
 $db_institutions = JSON.parse(File.read(File.expand_path("../_data/institutions.json",__FILE__)))   
 $db_magic_effects = JSON.parse(File.read(File.expand_path("../_data/magic_effects.json",__FILE__)))
 $db_magic_schools = JSON.parse(File.read(File.expand_path("../_data/magic_schools.json",__FILE__)))
@@ -366,7 +376,7 @@ $db_books.each do |p|
 	{
 		a: "A",
 		b: p["fields"]["title"],
-		c: p['fields']['slug'],
+		c: p['fields']['slug']+"/",
 		d: p['fields']['author_rollup']
 	})
 end
@@ -376,7 +386,7 @@ $db_celestials.each do |p|
 	{
 		a: "B",
 		b: p["fields"]["name"],
-		c: p['fields']['slug']
+		c: p['fields']['slug']+"/"
 	})
 end
 
@@ -385,7 +395,7 @@ $db_chakras.each do |p|
 	{
 		a: "C",
 		b: p["fields"]["name"],
-		c: p['fields']['slug'],
+		c: p['fields']['slug']+"/",
 		d: p["fields"]["aka"]
 	})
 end
@@ -395,7 +405,7 @@ $db_crystals.each do |p|
 	{
 		a: "D",
 		b: p["fields"]["name_common"],
-		c: p['fields']['slug'],
+		c: p['fields']['slug']+"/",
 		d: p["fields"]["names_aka"]
 	})
 end
@@ -405,7 +415,7 @@ $db_deities.each do |p|
 	{
 		a: "E",
 		b: p["fields"]["name_common"],
-		c: p['fields']['slug'],
+		c: p['fields']['slug']+"/",
 		d: p["fields"]["names_aka"]
 	})
 end
@@ -415,7 +425,7 @@ $db_elements.each do |p|
 	{
 		a: "F",
 		b: p["fields"]["name"],
-		c: p['fields']['slug']
+		c: p['fields']['slug']+"/"
 	})
 end
 
@@ -424,7 +434,7 @@ $db_magic_effects.each do |p|
 	{
 		a: "G",
 		b: p["fields"]["name"],
-		c: p['fields']['slug']
+		c: p['fields']['slug']+"/"
 	})
 end
 
@@ -433,7 +443,7 @@ $db_plants.each do |p|
 	{
 		a: "H",
 		b: p["fields"]["name_common"],
-		c: p['fields']['slug'],
+		c: p['fields']['slug']+"/",
 		d: "#{p['fields']['name_scientific']} | #{p['fields']['names_aka']}"
 	})
 end
@@ -443,7 +453,7 @@ $db_people.each do |p|
 	{
 		a: "I",
 		b: p["fields"]["name_full_long"],
-		c: p['fields']['slug']
+		c: p['fields']['slug']+"/"
 	})
 end
 
@@ -452,7 +462,17 @@ $db_religions.each do |p|
 	{
 		a: "J",
 		b: p["fields"]["name"],
-		c: p["fields"]["slug"]
+		c: p["fields"]["slug"]+"/"
+	})
+end
+
+$db_entities.each do |p|
+	search_base.push(
+	{
+		a: "K",
+		b: p["fields"]["name_plural"],
+		c: p["fields"]["slug"]+"/",
+		d: p["fields"]["name_singular"]
 	})
 end
 

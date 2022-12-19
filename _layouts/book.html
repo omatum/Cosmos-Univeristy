@@ -17,8 +17,13 @@
 			<a href="..">&larr; Return to Books Databank Directory</a>
 			<h1>{{book.title}}</h1>
 			<ul>
-				<% if book.has_key?("author_rollup")%>
-					<li>Authored by: <%= book["author_rollup"] %></li>
+				<% if book.has_key?("Author") %>
+					<% book["Author"].each do |i| %>
+					<% author = $db_people.find{|j|j["id"]==i} %>
+					<li>
+						<%= "Authored by: <a href='/databank/people/#{author['fields']['slug']}/'>#{author['fields']['name_full_long']}</a>" %>
+					</li>
+					<% end %>
 				<% end %>
 			</ul>
 			<hr>

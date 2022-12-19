@@ -1,0 +1,62 @@
+{% assign entity = page.fields %}
+<% entity = {{entity}}.to_h %>
+<% page_category = "entities" %>
+
+<% entity_religions = [] %>
+<% entity_members = [] %>
+
+<%
+if entity.has_key?("id_religions") 
+	entity["id_religions"].each do |i|
+		entity_religions << $db_religions.find{|j|j["id"]==i}
+	end
+end
+
+if entity.has_key?("named_member_deities")
+	entity["named_member_deities"].each do |i|
+		entity_members << $db_deities.find{|j|j["id"]==i}
+	end
+end
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include basic_head.html %}
+	<title>{{entity.name_plural}}: Data</title>	
+</head>
+<body>
+	<div class="outer-wrap">
+		{% include _nav.html %}
+		<section class="content">
+			{% include _search.html %}
+			<a href="..">&larr; Return to Entities Databank Directory</a>
+			<h1>{{entity.name_plural}}</h1>
+			<ul>
+				<% if entity_religions.count > 0 %>
+				<li><b>Religions acknowledging this type of entity</b></li>
+				<ul>
+					<% entity_religions.each do |i| %>
+					<%= "<li><a href='/databank/religions/#{i['fields']['slug']}/'>#{i['fields']['name']}</a></li>" %>
+					<% end %>
+				</ul>
+				<% end %>
+			</ul>
+			<hr>
+			<% if entity_members.count > 0 %>
+				<% entity_members.uniq! %>
+				<% entity_members.sort_by!{|i|i["fields"]["name_common"]} %>
+				<h2>Named Deities belonging to the <%= entity["name_singular"] %> group</h2>
+				<ul>
+					<% entity_members.each do |i| %>
+						<li>
+							<%= "<a href='/databank/deities/#{i['fields']['slug']}/'>#{i['fields']['name_common']}</a>" %>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+			<br>
+			{% include basic_footer.html %}
+		</section>
+	</div>
+</body>
+</html>

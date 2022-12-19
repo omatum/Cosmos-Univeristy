@@ -77,6 +77,17 @@
 <% deity_twins.uniq! %>
 
 
+<%
+deity_entity_groups = []
+
+if deity.has_key?("entities-associations")
+	deity["entities-associations"].each do |i|
+		deity_entity_groups << $db_entities.find{|j|j["id"]==i}
+	end
+end 
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,6 +113,16 @@
 							<% end %>
 						</ul>
 					</li>
+				<% end %>
+				<% if deity_entity_groups.count > 0 %>
+					<li><b>Entity Classifications</b></li>
+						<ul>
+							<% deity_entity_groups.each do |i| %>
+							<li>
+								<%= "<a href='/databank/entities/#{i['fields']['slug']}/'>#{i['fields']['name_plural']}</a>"  %>
+							</li>
+							<% end %>
+						</ul>
 				<% end %>
 			</ul>
 			<hr>

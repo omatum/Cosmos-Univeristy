@@ -48,6 +48,11 @@ page_gen:
     dir: databank/elements
     index_files: true
     name_expr: record['fields']['slug']
+  - data: entities
+    template: entity
+    dir: databank/entities
+    index_files: true
+    name_expr: record['fields']['slug']
   - data: magic_effects
     template: magic_effect
     dir: databank/magic-effects

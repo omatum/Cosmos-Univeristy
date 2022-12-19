@@ -8,7 +8,7 @@
     <url>
       <loc>https://cosmos.university/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -23,7 +23,7 @@
     <url>
       <loc>https://cosmos.university/databank/chakras/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -38,7 +38,7 @@
     <url>
       <loc>https://cosmos.university/databank/crystals/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -53,7 +53,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -68,7 +68,22 @@
     <url>
       <loc>https://cosmos.university/databank/elements/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
+      
+      
+      <changefreq>weekly</changefreq>
+      
+      
+      <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://cosmos.university/databank/entities/</loc>
+      
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -83,7 +98,7 @@
     <url>
       <loc>https://cosmos.university/databank/celestials/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -98,7 +113,7 @@
     <url>
       <loc>https://cosmos.university/databank/people/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -113,7 +128,7 @@
     <url>
       <loc>https://cosmos.university/databank/plants/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -128,7 +143,7 @@
     <url>
       <loc>https://cosmos.university/databank/religions/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -143,7 +158,7 @@
     <url>
       <loc>https://cosmos.university/databank/symbols/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -158,7 +173,7 @@
     <url>
       <loc>https://cosmos.university/databank/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -173,7 +188,7 @@
     <url>
       <loc>https://cosmos.university/databank/magic-effects/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -188,7 +203,7 @@
     <url>
       <loc>https://cosmos.university/databank/books/</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -10990,7 +11005,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/gabriel/</loc>
       
-      <lastmod>2022-12-15T20:20:38-05:00</lastmod>
+      <lastmod>2022-12-18T10:26:38-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -11558,6 +11573,21 @@
   
     
     <url>
+      <loc>https://cosmos.university/databank/deities/jeremiel/</loc>
+      
+      <lastmod>2022-12-18T10:27:30-05:00</lastmod>
+      
+      
+      <changefreq>weekly</changefreq>
+      
+      
+      <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>https://cosmos.university/databank/deities/minerva/</loc>
       
       <lastmod>2022-11-18T03:31:42-05:00</lastmod>
@@ -11695,7 +11725,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/eros/</loc>
       
-      <lastmod>2022-11-18T03:53:37-05:00</lastmod>
+      <lastmod>2022-12-18T10:25:02-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -12955,7 +12985,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/raguel/</loc>
       
-      <lastmod>2022-12-15T20:21:20-05:00</lastmod>
+      <lastmod>2022-12-18T10:27:38-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -13015,7 +13045,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/raphael/</loc>
       
-      <lastmod>2022-12-15T20:20:33-05:00</lastmod>
+      <lastmod>2022-12-18T10:26:40-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -14260,7 +14290,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/remiel/</loc>
       
-      <lastmod>2022-12-15T15:44:11-05:00</lastmod>
+      <lastmod>2022-12-18T10:28:02-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -15055,7 +15085,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/ramiel/</loc>
       
-      <lastmod>2022-12-15T20:21:29-05:00</lastmod>
+      <lastmod>2022-12-18T10:27:59-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -15685,7 +15715,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/phanuel/</loc>
       
-      <lastmod>2022-12-15T20:20:45-05:00</lastmod>
+      <lastmod>2022-12-18T10:29:30-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -16240,7 +16270,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/michael/</loc>
       
-      <lastmod>2022-12-15T20:20:40-05:00</lastmod>
+      <lastmod>2022-12-18T10:26:35-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -16435,7 +16465,7 @@
     <url>
       <loc>https://cosmos.university/databank/deities/cupid/</loc>
       
-      <lastmod>2022-11-18T03:56:05-05:00</lastmod>
+      <lastmod>2022-12-18T10:24:59-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -16841,6 +16871,21 @@
       <loc>https://cosmos.university/databank/deities/arcesius/</loc>
       
       <lastmod>2022-11-18T02:59:35-05:00</lastmod>
+      
+      
+      <changefreq>weekly</changefreq>
+      
+      
+      <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://cosmos.university/databank/deities/zerachiel/</loc>
+      
+      <lastmod>2022-12-18T10:28:31-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -17291,6 +17336,66 @@
       <loc>https://cosmos.university/databank/elements/fire/</loc>
       
       <lastmod>2022-12-04T04:24:14-05:00</lastmod>
+      
+      
+      <changefreq>weekly</changefreq>
+      
+      
+      <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://cosmos.university/databank/entities/cherubim/</loc>
+      
+      <lastmod>2022-12-18T10:25:14-05:00</lastmod>
+      
+      
+      <changefreq>weekly</changefreq>
+      
+      
+      <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://cosmos.university/databank/entities/ophanim/</loc>
+      
+      <lastmod>2022-12-18T10:29:30-05:00</lastmod>
+      
+      
+      <changefreq>weekly</changefreq>
+      
+      
+      <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://cosmos.university/databank/entities/seraphim/</loc>
+      
+      <lastmod>2022-12-18T10:28:24-05:00</lastmod>
+      
+      
+      <changefreq>weekly</changefreq>
+      
+      
+      <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://cosmos.university/databank/entities/archangels/</loc>
+      
+      <lastmod>2022-12-18T10:28:02-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -44485,7 +44590,7 @@
     <url>
       <loc>https://cosmos.university/databank/religions/greek-polytheism/</loc>
       
-      <lastmod>2022-11-27T10:06:41-05:00</lastmod>
+      <lastmod>2022-12-18T10:25:14-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -44710,7 +44815,7 @@
     <url>
       <loc>https://cosmos.university/databank/religions/greco-roman-mystery-cults/</loc>
       
-      <lastmod>2022-11-27T08:57:44-05:00</lastmod>
+      <lastmod>2022-12-18T10:25:13-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -44905,7 +45010,7 @@
     <url>
       <loc>https://cosmos.university/databank/religions/judaism/</loc>
       
-      <lastmod>2022-12-15T20:19:55-05:00</lastmod>
+      <lastmod>2022-12-18T10:28:31-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -44965,7 +45070,7 @@
     <url>
       <loc>https://cosmos.university/databank/religions/christianity/</loc>
       
-      <lastmod>2022-12-15T20:19:55-05:00</lastmod>
+      <lastmod>2022-12-18T10:21:58-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
@@ -45655,7 +45760,7 @@
     <url>
       <loc>https://cosmos.university/feed.xml</loc>
       
-      <lastmod>2022-12-18T07:51:22-05:00</lastmod>
+      <lastmod>2022-12-19T09:20:09-05:00</lastmod>
       
       
       <changefreq>weekly</changefreq>
